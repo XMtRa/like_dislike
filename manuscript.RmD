@@ -22,18 +22,18 @@ wordcount         : "`r wordcountaddin::word_count('manuscript.Rmd')`"
 draft             : no
 documentclass     : "apa6"
 classoption       : "man"
-output            : papaja::apa6_pdf
-header-includes:
-  - \setlength{\parskip}{0em}
-  - \raggedbottom
-  - \note{\clearpage}
+# output            : papaja::apa6_pdf
+# header-includes:
+#   - \setlength{\parskip}{0em}
+#   - \raggedbottom
+#   - \note{\clearpage}
 # output            : papaja::apa6_docx
-# output:
-#   html_document:
-#     toc: TRUE
-#     toc_float:
-#       collapsed: FALSE
-#     toc_depth: 2
+output:
+  html_document:
+    toc: TRUE
+    toc_float:
+      collapsed: FALSE
+    toc_depth: 2
 ---
 
 ```{r include=F}
