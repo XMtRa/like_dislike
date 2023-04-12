@@ -351,13 +351,13 @@ d <-
       labels = c(
         "Control", 
         "Like", 
-        "Like & Dislike"
+        "Like & dislike"
         )
       ),
     version_lkdslk = factor(
       version, 
       levels = c(
-        "Like & Dislike", 
+        "Like & dislike", 
         "Like", 
         "Control"
         )
@@ -366,7 +366,7 @@ d <-
       version, 
       "Control" = 1, 
       "Like" = 2, 
-      "Like & Dislike" = 3
+      "Like & dislike" = 3
       ),
     male = replace_na(
       male, 
@@ -386,19 +386,19 @@ d <-
       version, 
       "Control" = 0, 
       "Like" = 1, 
-      "Like & Dislike" = 0
+      "Like & dislike" = 0
       ),
     likedislike = recode(
       version, 
       "Control" = 0, 
       "Like" = 0, 
-      "Like & Dislike" = 1
+      "Like & dislike" = 1
       ),
     control = recode(
       version, 
       "Control" = 1, 
       "Like" = 0, 
-      "Like & Dislike" = 0
+      "Like & dislike" = 0
       ),
     
     # recode
@@ -1920,7 +1920,7 @@ words_m_lk <-
 
 words_m_lkdslk <- 
   fig_wrds_ctrl$data %>% 
-  filter(effect1__ == "Like & Dislike") %>% 
+  filter(effect1__ == "Like & dislike") %>% 
   select(estimate__)
 
 effect_lk_wrds <- words_m_ctrl - words_m_lk
@@ -2296,20 +2296,20 @@ tab_slopes <-
       .$contrast == "Like - Control", 
       "Like - Control",
       ifelse(
-        .$contrast == "Like & Dislike - Control", 
-        "Like & Dislike - Control",
+        .$contrast == "Like & dislike - Control", 
+        "Like & dislike - Control",
         ifelse(
-          .$contrast == "Like - Like & Dislike", 
-          "Like - Like & Dislike", 
+          .$contrast == "Like - Like & dislike", 
+          "Like - Like & dislike", 
           .$term
           )
         )
       ),
     Predictor = recode(
       term, 
-      "Like - Control" = "Like vs.control",
-      "Like & Dislike - Control" = "Like & dislike vs.control",
-      "Like - Like & Dislike" = "Like vs.like & dislike",
+      "Like - Control" = "Like vs. control",
+      "Like & dislike - Control" = "Like & dislike vs. control",
+      "Like - Like & dislike" = "Like vs. like & dislike",
       "pri_con_fs" = "Privacy concerns",
       "pri_del_fs" = "Privacy deliberation",
       "grats_gen_fs" = "Expected gratifications",
@@ -2327,9 +2327,9 @@ tab_slopes <-
   ) %>% 
   filter(
     Predictor %in% c(
-      "Like vs.control",
-      "Like & dislike vs.control",
-      "Like vs.like & dislike",
+      "Like vs. control",
+      "Like & dislike vs. control",
+      "Like vs. like & dislike",
       "Privacy concerns",
       "Privacy deliberation",
       "Expected gratifications",
@@ -2343,9 +2343,9 @@ tab_slopes <-
       "Privacy deliberation",
       "Expected gratifications",
       "Privacy concerns",
-      "Like vs.like & dislike",
-      "Like & dislike vs.control",
-      "Like vs.control"
+      "Like vs. like & dislike",
+      "Like & dislike vs. control",
+      "Like vs. control"
       )
     ),
     Estimate = 
