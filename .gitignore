@@ -11,4 +11,5 @@ manuscript/archive
 manuscript_cache/
 manuscript.tex
 manuscript.log
+manuscript_with-deletions.RmD
 data/workspace_full.RData
