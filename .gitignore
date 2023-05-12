@@ -13,3 +13,5 @@ manuscript.tex
 manuscript.log
 manuscript_with-deletions.RmD
 data/workspace_full.RData
+title_page.rmd
+title_page.pdf
