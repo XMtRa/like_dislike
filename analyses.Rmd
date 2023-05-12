@@ -35,6 +35,8 @@ In what follows, you can find the analyses for the results reported in the paper
 # Setup
 ## Packages
 
+Let's first load the packages we require for our analyses. Note that some need to be installed manually from github.
+
 ```{r results='hide', cache=F}
 # install github packages
 # devtools::install_github("tdienlin/td@v.0.0.2.3")  # uncomment to install
@@ -48,15 +50,13 @@ packages <-
     "devtools", 
     "english", 
     "faoutlier", 
-    "GGally", 
-    "gganimate",
+    "GGally",
     "kableExtra", 
     "knitr", 
     "lavaan", 
     "magrittr",
     "marginaleffects",
-    "MVN", 
-    # "psych", 
+    "MVN",
     "pwr", 
     "quanteda", 
     "semTools", 
@@ -77,6 +77,8 @@ lapply(
 ```
 
 ## Custom Functions
+
+We now build some custom functions required for the analyses. Note that here you can find the syntax for the main analyses wrapped in helper functions, which we will then call below.
 
 ```{r}
 # define function to silence result output
@@ -185,7 +187,7 @@ model_diagnostics <-
     vjust = 0,
     label_x = 0,
     label_y = 0.93
-  )
+    )
   }
 
 # wrapper function that runs relevant analyses for hurdle models
@@ -249,7 +251,7 @@ run_hurdles <-
       isTRUE(plot
              )) {
       plot(fit, ask = FALSE)
-      }
+  }
     
     # run diagnostics
     fit_diagnostics <- 
@@ -316,6 +318,8 @@ run_hurdles <-
 ```
 
 ## Data-Wrangling
+
+Let's next tidy up and prepare the data, so we can analyze them.
 
 ```{r results='hide', cache=F}
 # load data
@@ -426,7 +430,8 @@ d <-
     time_sum_min_t2 = TIME_SUM_t2 / 60,
     
     # take logarithm
-    words_log = log1p(words)
+    words_log = log1p(words),
+    self_dis_log = log1p(self_dis)
   )
 
 # variable labels
@@ -566,7 +571,7 @@ d_all <- d
 
 # Filter Participants
 
-We filtered participants who answered the questionnaire in less than three minutes, which we considered to be unreasonably fast.
+I filtered participants who answered the questionnaire in less than three minutes, which I considered to be unreasonably fast.
 
 ```{r cache=F}
 # filter speeders
@@ -589,7 +594,7 @@ d <-
     )
 ```
 
-We inspected the data manually for cases with obvious response patterns. The following cases show extreme response patterns (alongside fast response times), and were hence removed.
+I inspected the data manually for cases with obvious response patterns. The following cases show extreme response patterns (alongside fast response times), and were hence removed.
 
 ```{r cache=F}
 # identify response patterns
@@ -602,8 +607,6 @@ n_resp_pattern <-
   length(
     resp_pattern
     )
-
-# infl_cases_tokens <- infl_cases_tokens[!infl_cases_tokens %in% resp_pattern]
 
 d %>% 
   filter(
@@ -634,6 +637,9 @@ college_final_m <- table(d$edu)[[3]] / n_final
 ```
 
 # Measures
+
+Let's next inspect all measures. I list all items, their distributions and CFAs.
+
 ## Privacy concerns
 ### Items
 
@@ -827,6 +833,8 @@ inspect(
   lambda
 ```
 
+Model fit was good.
+
 ## Gratifications specific
 ### Items
 
@@ -926,6 +934,8 @@ inspect(
   lambda
 ```
 
+Model fit was okay.
+
 ## Privacy deliberation
 ### Items
 
@@ -994,12 +1004,14 @@ inspect(
   lambda
 ```
 
+Model fit was very good (which is nice, given it's a newly designed scale).
+
 ## Trust general
 ### Items
 
-&nbsp;&nbsp;&nbsp;1. The other users seemed trustworthy.  
-&nbsp;&nbsp;&nbsp;2. The operators of the participation platform seemed trustworthy.  
-&nbsp;&nbsp;&nbsp;3. The website seemed trustworthy.  
+ 1. The other users seemed trustworthy.  
+ 2. The operators of the participation platform seemed trustworthy.  
+ 3. The website seemed trustworthy.  
 
 ### Distributions
 
@@ -1014,6 +1026,8 @@ get_desc(
 ```
 
 ### CFA
+
+Note that I constrained two loadings to be able to report model fit. I used operators and website, as these are theoretically closer.
 
 ```{r}
 name <- "trustgen"
@@ -1059,7 +1073,7 @@ inspect(
   lambda
 ```
 
-Note that we constrained Items 5 and Item 9 to be equal. Explanation: First, they are theoretically related. Second, not constraining would yield to just-identified model, for which model fit cannot be interpreted meaningfully.
+Note that I constrained Items 5 and Item 9 to be equal. Explanation: First, they are theoretically related. Second, not constraining would yield to just-identified model, for which model fit cannot be interpreted meaningfully.
 
 ## Trust specific
 ### Items
@@ -1098,13 +1112,13 @@ get_desc(
 ### CFA
 
 ```{r}
-name <- "trust_spec"
+name <- "trustspec"
 model <- "
   trust_community =~ TR01_01 + TR01_02 + TR01_03
   trust_provider =~ TR01_04 + TR01_05 + TR01_06
   trust_system =~ TR01_07 + TR01_08 + TR01_09
   
-  trust =~ trust_community + trust_provider + trust_system
+  trust_spec =~ trust_community + trust_provider + trust_system
 "
 fit <- lavaan::sem(
   model = model, 
@@ -1143,55 +1157,7 @@ inspect(
   lambda
 ```
 
-### CFA 2
-
-Because there was Heywoodcase, we now also run a model in which the subdimensions `provider` and `system` are combined.
-
-```{r}
-name <- "trustspec"
-model <- "
-  trust_community =~ TR01_01 + TR01_02 + TR01_03
-  trust_provider =~ TR01_04 + TR01_05 + TR01_06 + TR01_07 + TR01_08 + TR01_09
-  trust_spec =~ b*trust_community + b*trust_provider
-"
-fit <- lavaan::sem(
-  model = model, 
-  data = d, 
-  estimator = "MLR", 
-  missing = "ML"
-  )
-```
-
-Model fit:
-
-```{r}
-facval <- 
-  fit_tab(
-    fit, 
-    reliability = TRUE, 
-    scaled = TRUE
-    ) %T>%
-  print()
-
-assign(
-  paste0(
-    name, 
-    "_facval"
-    ), 
-  facval
-  )
-```
-
-Factor loadings:
-
-```{r}
-inspect(
-  fit,
-  what = "std"
-  ) %$%
-  lambda
-```
-Warning disappears, results show adequate fit.
+Model fit was good (there's a Highwood case on level 1, which is not too problematic in this case.)
 
 ## Self-efficacy
 ### Items
@@ -1260,7 +1226,7 @@ inspect(
   lambda
 ```
 
-Shows significant misfit. We will delete inverted items, while allowing covariations between Items 1 and 2 (tech-oriented) and Items 3 and 4 (topic-oriented). 
+Shows significant misfit. I will delete inverted items, while allowing covariations between Items 1 and 2 (tech-oriented) and Items 3 and 4 (topic-oriented). 
 
 ### CFA 2
 
@@ -1334,7 +1300,7 @@ ggplot(
   theme_bw()
 ```
 
-We see that Communication is severely skewed. Let's calculate how many participants actually commented.
+We can see that Communication is severely skewed. Let's calculate how many participants actually commented.
 
 ```{r}
 no_words_perc <- 
@@ -1351,6 +1317,8 @@ words_m <-
     na.rm = TRUE
     )
 ```
+
+`r no_words_perc` percent wrote a comment. The average number of communicated words was `r words_m`.
 
 Will hence be log-scaled for SEMs.
 
@@ -1393,8 +1361,9 @@ model_baseline <- "
   pri_delib =~ PD01_01 + PD01_02 + PD01_03 + PD01_04 + PD01_05
   trust_gen =~ TR02_01 + TR02_02 + TR02_03
   trust_community =~ TR01_01 + TR01_02 + TR01_03
-  trust_provider =~ TR01_04 + TR01_05 + TR01_06 + TR01_07 + TR01_08 + TR01_09
-  trust_spec =~ b*trust_community + b*trust_provider
+  trust_provider =~ TR01_04 + TR01_05 + TR01_06
+  trust_system =~ TR01_07 + TR01_08 + TR01_09
+  trust_spec =~ trust_community + trust_provider + trust_system
   self_eff =~ SE01_01 + SE01_02 + SE01_03 + SE01_04
     SE01_01 ~~ x*SE01_02
     SE01_03 ~~ x*SE01_04
@@ -1419,7 +1388,7 @@ summary(
 
 # Descriptive analyses
 
-We first report the factor validity of all variables combined.
+I first report the factor validity of all variables combined.
 
 ```{r cache=F}
 # extract model factor scores / predicted values for items & calc means
@@ -1458,21 +1427,6 @@ d %<>%
       -version, 
       -words_log
       )
-    )
-
-# add centered predictors for interaction analyses later
-d %<>%
-  mutate(
-    pri_con_fs_c = scale(pri_con_fs, scale = FALSE),
-    grats_spec_fs_c = scale(grats_spec_fs, scale = FALSE),
-    pri_del_fs_c = scale(pri_del_fs, scale = FALSE),
-    trust_gen_fs_c = scale(trust_gen_fs, scale = FALSE),
-    self_eff_fs_c = scale(self_eff_fs, scale = FALSE),
-    male_c = scale(male, scale = FALSE),
-    edu_c = scale(edu, scale = FALSE),
-    age_c = scale(age, scale = FALSE),
-    con_x_del = pri_con_fs_c * pri_del_fs_c,
-    grats_x_del = grats_spec_fs_c * pri_del_fs_c
     )
 
 # rename for plotting
@@ -1520,7 +1474,7 @@ facval_tab %>%
   scroll_box(width = "100%")
 ```
 
-In what follows, we report zero-order correlations, distributions, and scatterplots of the variables' factor scores.
+In what follows, I report zero-order correlations, distributions, and scatterplots of the variables' factor scores.
 
 ```{r fig.height=9, fig.width=9}
 corr_plot <- 
@@ -1543,7 +1497,7 @@ ggsave("figures/results/cor_plot.png")
 
 # Power analyses
 
-In what follows, we report power analyses for our study. Please note that we conduct a rudimentary power-analysis, assuming bivariate correlations. To explain, at the time we were not yet aware of the existence of power analyses for multivariate structural equation models. 
+In what follows, I report power analyses for our study. Please note that I conduct a rudimentary power-analysis, assuming bivariate correlations. (At the time I was not yet aware of the existence of power analyses for multivariate structural equation models.)
 
 ```{r include=F}
 # define pwr-criteria
@@ -1553,7 +1507,7 @@ power_desired <- .95
 r_sesoi <- .10
 ```
 
-We first estimate the sample size necessary to find small effects in 95% of all cases.
+I first estimate the sample size necessary to find small effects in 95% of all cases.
 
 ```{r}
 # estimate pwr-samplesize
@@ -1569,7 +1523,7 @@ pwr.r.test(
   n_desired
 ```
 
-We then compute the power we have achieved with our finale sample size to detect small effects.
+I then compute the power we have achieved with our final sample size to detect small effects.
 
 ```{r}
 # compute pwr-achieved
@@ -1585,7 +1539,7 @@ pwr.r.test(
   power_achieved
 ```
 
-We finally compute what effect size we are likely to find in 95% of all cases given our final sample size.
+I finally compute what effect size we are likely to find in 95% of all cases given our final sample size.
 
 ```{r}
 # estimate pwr-sensitivity
@@ -1624,13 +1578,13 @@ mvn_result <- mvn(d_sub, mvnTest = "mardia")
 mvn_result$multivariateNormality
 ```
 
-Shows that multivariate normal distribution is violated. We hence use maximum likelihood estimation with robust standard errors and a Satorra-Bentler scaled test statistic.
+Shows that multivariate normal distribution is violated. I hence use maximum likelihood estimation with robust standard errors and a Satorra-Bentler scaled test statistic.
 
 ## Influential cases
 
-[Note: These lines stopped working after some time, potentially due to changes in package.]
+In what follows I test for influential cases in the baseline model, to detect potentially corrupt data (e.g., people who provided response patterns). Specifically, I compute Cook's distance.
 
-In what follows we test for influential cases in the baseline model, to detect potentially corrupt data (e.g., people who provided response patterns). Specifically, we compute Cook's distance.
+[Note: The following lines stopped working after some time, potentially due to changes in package. I can hence not recreate them here, but refer to results obtained before.]
 
 ```{r eval=F}
 cooks_dis <- 
@@ -1693,8 +1647,10 @@ model <- "
   SE01_01 ~~ x*SE01_02
   SE01_03 ~~ x*SE01_04
   trust_community =~ TR01_01 + TR01_02 + TR01_03
-  trust_provider =~ TR01_04 + TR01_05 + TR01_06 + TR01_07 + TR01_08 + TR01_09
-  trust_spec =~ b*trust_community + b*trust_provider
+  trust_provider =~ TR01_04 + TR01_05 + TR01_06
+  trust_system =~ TR01_07 + TR01_08 + TR01_09
+  
+  trust_spec =~ trust_community + trust_provider + trust_system
 
 words_log ~ a1*pri_con + b1*grats_gen + c1*pri_delib + d1*self_eff + e1*trust_spec
 
@@ -1797,7 +1753,7 @@ fig_fs_m
 
 #### SEM
 
-In what follows, we also report explicit statistical tests of the differences between the conditions using contrasts. 
+In what follows, I also report explicit statistical tests of the differences between the conditions using contrasts. 
 
 **Like & Like-Dislike vs. Control**
 
@@ -1810,8 +1766,9 @@ model <- "
   SE01_01 ~~ x*SE01_02
   SE01_03 ~~ x*SE01_04
   trust_community =~ TR01_01 + TR01_02 + TR01_03
-  trust_provider =~ TR01_04 + TR01_05 + TR01_06 + TR01_07 + TR01_08 + TR01_09
-  trust_spec =~ b*trust_community + b*trust_provider
+  trust_provider =~ TR01_04 + TR01_05 + TR01_06
+  trust_system =~ TR01_07 + TR01_08 + TR01_09
+  trust_spec =~ trust_community + trust_provider + trust_system
 
   pri_con + grats_gen + pri_delib + self_eff + trust_spec ~ like + likedislike
   words ~ a*pri_con + b*grats_gen + c*pri_delib + d*self_eff + e*trust_spec + f*like + g*likedislike
@@ -1849,8 +1806,9 @@ model <- "
   SE01_01 ~~ x*SE01_02
   SE01_03 ~~ x*SE01_04
   trust_community =~ TR01_01 + TR01_02 + TR01_03
-  trust_provider =~ TR01_04 + TR01_05 + TR01_06 + TR01_07 + TR01_08 + TR01_09
-  trust_spec =~ b*trust_community + b*trust_provider
+  trust_provider =~ TR01_04 + TR01_05 + TR01_06
+  trust_system =~ TR01_07 + TR01_08 + TR01_09
+  trust_spec =~ trust_community + trust_provider + trust_system
 
   pri_con + grats_gen + pri_delib + self_eff + trust_spec + words ~ likedislike + control
 
@@ -1892,7 +1850,7 @@ As a result, I reran the analyses controlling for confounding variables that are
 ### Experimental Factors
 #### Words
 
-We first compare likes and likes plus dislikes to the control condition.
+I first compare likes and likes plus dislikes to the control condition.
 
 ```{r}
 run_hurdles(
@@ -1936,7 +1894,7 @@ effect_lkdlk_prcnt <-
 
 Compared to the control condition, participants wrote `r effect_lkdlk_prcnt` percent fewer words on the platform with likes and dislikes.
 
-We then compare likes and likes plus dislikes to the control condition.
+I then compare likes and likes plus dislikes to the control condition.
 
 ```{r}
 run_hurdles(
@@ -1951,7 +1909,7 @@ run_hurdles(
 
 #### Privacy Concerns
 
-We first compare likes and likes plus dislikes to the control condition.
+I first compare likes and likes plus dislikes to the control condition.
 
 ```{r}
 run_hurdles(
@@ -1964,7 +1922,7 @@ run_hurdles(
   )
 ```
 
-We then compare likes and likes plus dislikes to the control condition.
+I then compare the likes and control conditions to the likes plus dislikes condition.
 
 ```{r}
 run_hurdles(
@@ -1979,7 +1937,7 @@ run_hurdles(
 
 #### Expected Gratifications
 
-We first compare likes and likes plus dislikes to the control condition.
+I first compare likes and likes plus dislikes to the control condition.
 
 ```{r}
 run_hurdles(
@@ -1992,7 +1950,7 @@ run_hurdles(
   )
 ```
 
-We then compare likes and likes plus dislikes to the control condition.
+I then compare the likes and control conditions to the likes plus dislikes condition.
 
 ```{r}
 run_hurdles(
@@ -2007,7 +1965,7 @@ run_hurdles(
 
 #### Privacy Deliberation
 
-We first compare likes and likes plus dislikes to the control condition.
+I first compare likes and likes plus dislikes to the control condition.
 
 ```{r}
 run_hurdles(
@@ -2020,7 +1978,7 @@ run_hurdles(
   )
 ```
 
-We then compare likes and likes plus dislikes to the control condition.
+I then compare the likes and control conditions to the likes plus dislikes condition.
 
 ```{r}
 run_hurdles(
@@ -2035,7 +1993,7 @@ run_hurdles(
 
 #### Trust
 
-We first compare likes and likes plus dislikes to the control condition.
+I first compare likes and likes plus dislikes to the control condition.
 
 ```{r}
 run_hurdles(
@@ -2048,7 +2006,7 @@ run_hurdles(
   )
 ```
 
-We then compare likes and likes plus dislikes to the control condition.
+I then compare the likes and control conditions to the likes plus dislikes condition.
 
 ```{r}
 run_hurdles(
@@ -2063,7 +2021,7 @@ run_hurdles(
 
 #### Self-Efficacy
 
-We first compare likes and likes plus dislikes to the control condition.
+I first compare likes and likes plus dislikes to the control condition.
 
 ```{r}
 run_hurdles(
@@ -2076,7 +2034,7 @@ run_hurdles(
   )
 ```
 
-We then compare likes and likes plus dislikes to the control condition.
+I then compare the likes and control conditions to the likes plus dislikes condition.
 
 ```{r}
 run_hurdles(
@@ -2103,7 +2061,7 @@ run_hurdles(
   )
 ```
 
-Let's explore  how number of communicated words differ for people very much concerned versus not concerned at all.
+Let's explore how number of communicated words differ for people very much concerned versus not concerned at all.
 
 ```{r}
 # let's extract effects for 1
@@ -2395,12 +2353,10 @@ save.image(
 save(
   d_raw, d_all, d_fs, d
   , fit_baseline, fit_prereg
-  # , fig_fs_m, fig_fs_cor, fig_coeffs
   , des_pridel
   , facval_tab
   , n_comments, n_desired, n_posts, n_speeding, n_time, n_words
   , n_users, n_final
-  # , infl_cases, infl_cases_tokens
   , resp_pattern, n_resp_pattern
   , n_t1, age_t1_m, male_t1_m, college_t1_m
   , n_t2, age_t2_m, male_t2_m, college_t2_m
