@@ -4,7 +4,7 @@ title             : "Likes or Dislikes, Gratifications or Concerns? A One-Week F
 shorttitle        : "Popularity cues & privacy calculus"
 
 abstract: |
-    The privacy calculus model states that people weigh risks and benefits before communicating online. This paper analyzes three open questions. How robust is the privacy calculus, can it be replicated with actual behavior in realistic online setting? Do we need to extend the model by integrating more socio-psychological measures such as trust, self-efficacy, and privacy deliberation? How easily can the privacy calculus be be manipulated by external factors such as like and dislike buttons? In a preregistered one-week field experiment (N = 590), participants discussed a current political topic on an online website, which included either (a) like buttons, (b) both like and dislike buttons, or (c) no buttons. The privacy calculus model was confirmed: Benefits and concerns affected communication. Deliberating about privacy by comparing benefits and risks decreased communication. Experiencing self-efficacy and trust increased communication. Implementing both like and dislike buttons had a strong effect on behavior: It reduced online communication by 45 percent. 
+    The privacy calculus model states that people weigh risks and benefits before communicating online. This paper analyzes three questions. How robust is the privacy calculus, can it be replicated with actual behavior in realistic online settings? Do we need to extend the model by integrating more socio-psychological measures such as trust, self-efficacy, and privacy deliberation? How easily can the privacy calculus be manipulated by external factors such as like and dislike buttons? In a preregistered one-week field experiment (N = 590), participants discussed a current political topic on an online website, which included either (a) like buttons, (b) both like and dislike buttons, or (c) no buttons. The privacy calculus model was confirmed: Benefits and concerns affected communication. Deliberating about privacy by comparing benefits and risks decreased communication. Experiencing self-efficacy and trust increased communication. Like and dislike buttons had a strong effect on behavior: They reduced communication by 45 percent. 
 
 keywords          : "privacy calculus, communication, popularity cues, field experiment, preregistration"
 
@@ -22,18 +22,18 @@ wordcount         : "`r wordcountaddin::word_count('manuscript.Rmd')`"
 draft             : no
 documentclass     : "apa6"
 classoption       : "man"
-# output            : papaja::apa6_pdf
-# header-includes:
-#   - \setlength{\parskip}{0em}
-#   - \raggedbottom
-#   - \note{\clearpage}
+output            : papaja::apa6_pdf
+header-includes:
+  - \setlength{\parskip}{0em}
+  - \raggedbottom
+  - \note{\clearpage}
 # output            : papaja::apa6_docx
-output:
-  html_document:
-    toc: TRUE
-    toc_float:
-      collapsed: FALSE
-    toc_depth: 2
+# output:
+#   html_document:
+#     toc: TRUE
+#     toc_float:
+#       collapsed: FALSE
+#     toc_depth: 2
 ---
 
 ```{r include=F}
@@ -328,7 +328,7 @@ apa_table(
   font_size = "footnotesize",
   caption = "Psychometric Properties, Factorial Validity, and Reliability of Measures",
   note = "omega = Raykov's composite reliability coefficient omega; avevar = average variance extracted."
-  # , align = c("l", rep("r", 11))
+  , align = c("l", rep("r", 11))
   )
 ```
 
@@ -484,7 +484,7 @@ apa_table(tab_slopes %>%
           , font_size = "footnotesize"
           , caption = "Effects of the privacy calculus variables and the popularity cues on communication. Credibility intervals exluding zero are considered significant."
           , note = "HDI = highest density interval, LL = lower level; UL = upper level. Reported are average marginal effects."
-          # , align = c("p{6cm}", rep("r", 3))
+          , align = c("p{6cm}", rep("r", 3))
           , digits = 0
           )
 ```
