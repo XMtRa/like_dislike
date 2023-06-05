@@ -22,11 +22,7 @@ navbar:
       href: manuscript.pdf
     - text: "Source Code"
       icon: fa-lg fa-github
-      href: https://github.com/tdienlin/privacy_calc_exp
-authors:
-  Tobias Dienlin:
-    href: https://tdienlin.github.io
-      
+      href: https://github.com/XMtRa/like_dislike
 
 output:
   html_document:
