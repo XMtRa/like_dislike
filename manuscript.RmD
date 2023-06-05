@@ -21,12 +21,13 @@ wordcount         : "`r wordcountaddin::word_count('manuscript.Rmd')`"
 draft             : no
 # output            : papaja::apa6_pdf
 # documentclass     : "apa6"
-documentclass     : "apa7"
-classoption       : "man"
 # header-includes:
 #   - \setlength{\parskip}{0em}
 #   - \raggedbottom
 #   - \note{\clearpage}
+# output            : papaja::apa6_pdf
+# documentclass     : "apa7"
+# classoption       : "man"
 # header-includes:
 #   - |
 #     \makeatletter
@@ -47,12 +48,12 @@ classoption       : "man"
 # 
 # csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
 # output            : papaja::apa6_docx
-output:
-  html_document:
-    toc: TRUE
-    toc_float:
-      collapsed: FALSE
-    toc_depth: 2
+# output:
+#   html_document:
+#     toc: TRUE
+#     toc_float:
+#       collapsed: FALSE
+#     toc_depth: 2
 ---
 
 ```{r include=F}
@@ -126,11 +127,11 @@ load("data/workspace.rData")
 According to the privacy paradox, the way users share information online is erratic [@barnesPrivacyParadoxSocial2006]:
 People communicate much personal information online, although being strongly concerned about their privacy [@taddickenUsesPrivacyOnline2011].
 However, despite its popularity in both academic research [@dienlinPrivacyParadoxAus2019] and the public press [@newyorkpublicradioPrivacyParadox2018], empirical support for the privacy paradox is tenuous [@baruhOnlinePrivacyConcerns2017; @dienlinDoesPrivacyParadox2021]. 
-Research is increasingly building on the privacy calculus model, which states that communication online can be explained by perceived risks and expected benefits [@bolUnderstandingEffectsPersonalization2018b; @krasnovaOnlineSocialNetworks2010; @meierPrivacyCalculusRevisited2022].
+Research is increasingly building on the privacy calculus model, which states that communication online can be explained by perceived risks and expected benefits [@bolUnderstandingEffectsPersonalization2018; @krasnovaOnlineSocialNetworks2010; @meierPrivacyCalculusRevisited2022].
 
 Although the privacy calculus has gained momentum in academic research, several important questions remain unanswered. 
 First, the privacy calculus' empirical foundation needs to be improved [@knijnenburgDeathPrivacyCalculus2017]. 
-To date, much research on the privacy calculus builds on (a) self-reports of behavior [@krasnovaOnlineSocialNetworks2010], (b) vignette approaches [@bolUnderstandingEffectsPersonalization2018b], or (c) one-shot experiments in the lab [@treptePrivacyCalculusContextualized2020]. 
+To date, much research on the privacy calculus builds on (a) self-reports of behavior [@krasnovaOnlineSocialNetworks2010], (b) vignette approaches [@bolUnderstandingEffectsPersonalization2018], or (c) one-shot experiments in the lab [@treptePrivacyCalculusContextualized2020]. 
 Self-reports are often unreliable measures of online behavior [@parrySystematicReviewMetaanalysis2021], vignette approaches have limited external validity, and one-shot experiments cannot analyze compound effects of sustained use.
 The first aim is therefore to replicate the privacy calculus model in a more authentic and long-term setting using actual behavioral data.
 Doing so will show its robustness, and it will help understand if behavior is better explained by the privacy paradox approach or by the privacy calculus model.
@@ -156,13 +157,12 @@ When are we willing to engage in a conversation?
 It builds on the calculus of behavior [@lauferPrivacyConceptSocial1977] and states that people are weighing risks and benefits before engaging in communication.
 Communication is closely related to privacy, which is defined as a "voluntary and temporary withdrawal of a person from the general society" [@westinPrivacyFreedom1967, p. 7].
 People regulate their privacy by deciding what and what not to communicate [@dienlinPrivacyProcessModel2014].
-Disclosing information can be risky, and if people are more concerned about their privacy 
-they are less likely to communicate online [@baruhOnlinePrivacyConcerns2017; @krasnovaOnlineSocialNetworks2010; @masurUnderstandingEffectsConceptual2023; @meierPrivacyCalculusRevisited2022].
+Disclosing information can be risky, and if people with higher privacy needs and privacy concerns are less likely to communicate online [@baruhOnlinePrivacyConcerns2017; @krasnovaOnlineSocialNetworks2010; masurTransformativeNotHow2021; @meierPrivacyCalculusRevisited2022].
 According to a meta-analysis by @baruhOnlinePrivacyConcerns2017, the effect is small but significant (*r* = -.13).
 
-Outweighing concerns, the most relevant drivers of online communication are expected gratifications [@dienlinExtendedPrivacyCalculus2016a; @bolUnderstandingEffectsPersonalization2018b; @kezerGettingPrivacyCalculus2022].
+Outweighing concerns, the most relevant drivers of online communication are expected gratifications [@dienlinExtendedPrivacyCalculus2016; @bolUnderstandingEffectsPersonalization2018; @kezerGettingPrivacyCalculus2022].
 People are happy to trade in parts of their privacy when they can receive something more valuable in return [@lauferPrivacyConceptSocial1977].
-In online communication, the most important benefits include social support [@krasnovaOnlineSocialNetworks2010], social capital [@ellisonBenefitsFacebookFriends2007], entertainment [@dhirUnderstandingRelationshipIntensity2017], information-seeking [@whitingWhyPeopleUse2013], and self-presentation [@minHowArePeople2015].
+In online communication, the most important benefits include social support, social capital, entertainment, information-seeking, and self-presentation [@dhirUnderstandingRelationshipIntensity2017; @ellisonBenefitsFacebookFriends2007; @krasnovaOnlineSocialNetworks2010; whitingWhyPeopleUse2013].
 
 H1: People who are more concerned about their privacy are less likely to communicate actively on a website.
 
@@ -196,9 +196,10 @@ In the context of online privacy, rationality is impeded by information asymmetr
 It follows that to provide a more complete picture, additional factors next to gratifications and concerns should also explain communication.
 Factors less focused on rationality, but more on socio-psychological aspects.
 
-Prior research suggests that perhaps the following two factors are most important when it comes to understanding online communication: self-efficacy and trust [@correaParticipationDivideOnline2010; @hossainICTEnabledVirtual2004; @metzgerPrivacyTrustDisclosure2004].
-For example, if users are more familiar, experienced, and knowledgeable in a given online context, they are more likely to navigate that online contexts successfully and to communicate actively [@baruhOnlinePrivacyConcerns2017; @kramerMasteringChallengeBalancing2020].
-People with more privacy self-efficacy also engage more successfully in self-withdrawal [@dienlinExtendedPrivacyCalculus2016a].
+The two factor perhaps most important when it comes to understanding online communication are self-efficacy and trust [@hossainICTEnabledVirtual2004; @metzgerPrivacyTrustDisclosure2004].
+Privacy violations create psychological distress [@ledbetterParentchildPrivacyBoundary2019], experiencing online contexts as a safe space that users can sufficiently control is important for engaging in online communication. 
+If users are more familiar, experienced, and knowledgeable in a given online context, they are more likely to navigate that online contexts successfully and to communicate actively [@baruhOnlinePrivacyConcerns2017; @kramerMasteringChallengeBalancing2020].
+People with more privacy self-efficacy also engage more successfully in self-withdrawal [@dienlinExtendedPrivacyCalculus2016].
 Hence, if users possess more self-efficacy to participate, they should also communicate more.
 
 H3: People are more likely to communicate on a website when their self-efficacy to actively use the website is higher.
@@ -225,8 +226,6 @@ How and why might popularity cues affect the privacy calculus?
 In analyzing this question, it makes sense to analyze the cues' underlying affordances [@ellisonSocialNetworkSite2015; @foxDistinguishingTechnologiesSocial2017].
 Affordances are mental representations of how objects might be used.
 They emphasize that it is not the _objective features_ that determine behavior, but rather our _subjective perceptions_ [@gibsonEcologicalApproachVisual2015].
-There is an ongoing debate on how to best understand and operationalize affordances [@evansExplicatingAffordancesConceptual2017].
-Whereas @evansExplicatingAffordancesConceptual2017 propose three affordances for mediated communication (i.e., anonymity, persistence, and visibility), @foxDistinguishingTechnologiesSocial2017 suggest 10 affordances for SNSs alone (i.e., accessibility, bandwidth, social presence, privacy, network association, personalization, persistence, editability, conversation control, and anonymity).
 Popularity cues such as like and dislike buttons, which are of primary interest in this study, are understood as "paralinguistic digital affordances" [@carrPredictingThresholdPerceived2018, p. 142].
 
 ```{r model, fig.cap="Overview of analyzed model.", fig.align='center', out.width=".8\\textwidth"}
@@ -392,7 +391,7 @@ As preregistered, all hypotheses and research questions were initially tested us
 The influence of the three websites was analyzed using contrast coding.
 Because the assumption of multivariate normality was violated, I estimated the models using robust maximum likelihood [@klinePrinciplesPracticeStructural2016]. 
 As recommended by @klinePrinciplesPracticeStructural2016, to assess global fit I report the model's $\chi^2$, RMSEA (90% CI), CFI, and SRMR. 
-To exclude confounding influences, I controlled all variables for age, gender, and education, which have been shown to affect both privacy concerns and online communication [@masurUnderstandingEffectsConceptual2023; @tifferetGenderDifferencesPrivacy2019a].
+To exclude confounding influences, I controlled all variables for age, gender, and education, which have been shown to affect both privacy concerns and online communication [@tifferetGenderDifferencesPrivacy2019a].
 The preregistered hypotheses were tested with a one-sided significance level of 5%; the research questions were tested with a two-sided 5% significance level using family-wise Bonferroni-Holm correction. 
 
 As became apparent when analyzing the data, the preregistered analyses had two major problems.
@@ -503,7 +502,8 @@ apa_table(tab_slopes %>%
           , font_size = "footnotesize"
           , caption = "Effects of the privacy calculus variables and the popularity cues on communication. Credibility intervals exluding zero are considered significant."
           , note = "HDI = highest density interval, LL = lower level; UL = upper level. Reported are average marginal effects."
-          , align = c("l", rep("r", 3))
+          # , align = c("m{10cm}", rep("r", 3)) # use this for compiling pdfs
+          , align = c("l", rep("r", 3)) # use this for compiling htmls
           , digits = 0
           )
 ```
