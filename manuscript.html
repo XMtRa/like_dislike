@@ -13,7 +13,7 @@
 
 <title>Likes or Dislikes, Gratifications or Concerns? A One-Week Field Experiment Analyzing the Effects of Popularity Cues on the Privacy Calculus in Online Communication</title>
 
-<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -29,11 +29,14 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.2.1/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.2.1/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -253,6 +256,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -260,6 +332,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -304,7 +386,7 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="https://github.com/tdienlin/privacy_calc_exp">
+  <a href="https://github.com/XMtRa/like_dislike">
     <span class="fa fa-lg fa-github"></span>
      
     Source Code
@@ -352,14 +434,14 @@ online is erratic <span class="citation">(Barnes 2006)</span>: People
 communicate much personal information online, although being strongly
 concerned about their privacy <span class="citation">(Taddicken and Jers
 2011)</span>. However, despite its popularity in both academic research
-<span class="citation">(Dienlin 2019)</span> and the public press <span
-class="citation">(New York Public Radio 2018)</span>, empirical support
-for the privacy paradox is tenuous <span class="citation">(Baruh,
-Secinti, and Cemalcilar 2017; Dienlin and Sun 2021)</span>. Research is
-increasingly building on the privacy calculus model, which states that
-communication online can be explained by perceived risks and expected
-benefits <span class="citation">(Bol et al. 2018; Krasnova et al. 2010;
-Meier and Krämer 2022)</span>.</p>
+<span class="citation">(Philipp K. Masur 2023)</span> and the public
+press <span class="citation">(New York Public Radio 2018)</span>,
+empirical support for the privacy paradox is tenuous <span
+class="citation">(Baruh, Secinti, and Cemalcilar 2017; Dienlin and Sun
+2021)</span>. Research is increasingly building on the privacy calculus
+model, which states that communication online can be explained by
+perceived risks and expected benefits <span class="citation">(Bol et al.
+2018; Krasnova et al. 2010)</span>.</p>
 <p>Although the privacy calculus has gained momentum in academic
 research, several important questions remain unanswered. First, the
 privacy calculus’ empirical foundation needs to be improved <span
@@ -399,8 +481,8 @@ privacy calculus upholds that much of behavior is rational and
 self-determined, but how easily can this process be manipulated by
 external circumstances? Online contexts are optimized to elicit as much
 interaction as possible <span class="citation">(Ellison and Vitak 2015;
-Masur, DiFranzo, and Bazarova 2021)</span>, for example via low
-threshold communication features such as likes, shares, replies, or
+Philipp K. Masur, DiFranzo, and Bazarova 2021)</span>, for example via
+low threshold communication features such as likes, shares, replies, or
 reactions <span class="citation">(Carr, Hayes, and Sumner 2018)</span>.
 Implicit and explicit cues on how a website is used can increase
 self-disclosure <span class="citation">(Spottswood and Hancock 2017;
@@ -420,13 +502,14 @@ general society” <span class="citation">(Westin 1967, 7)</span>. People
 regulate their privacy by deciding what and what not to communicate
 <span class="citation">(Dienlin 2014)</span>. Disclosing information can
 be risky, and if people with higher privacy needs and privacy concerns
-are less likely to communicate online [<span class="citation">Baruh,
-Secinti, and Cemalcilar (2017)</span>; <span class="citation">Krasnova
-et al. (2010)</span>; masurTransformativeNotHow2021; <span
-class="citation">Meier and Krämer (2022)</span>]. According to a
-meta-analysis by <span class="citation">Baruh, Secinti, and Cemalcilar
-(2017)</span>, the effect is small but significant (<em>r</em> =
--.13).</p>
+are less likely to communicate online <span class="citation">(Baruh,
+Secinti, and Cemalcilar 2017; Krasnova et al. 2010; Philipp K. Masur and
+Trepte 2021; Philipp K. Masur 2023)</span>. According to a meta-analysis
+by <span class="citation">Baruh, Secinti, and Cemalcilar (2017)</span>,
+the effect is small but significant (<em>r</em> = -.13). Similarly,
+people who are more concerned about their privacy also engage in more
+privacy protection behaviors <span class="citation">(Baruh, Secinti, and
+Cemalcilar 2017; Stubenvoll et al. 2022)</span>.</p>
 <p>Outweighing concerns, the most relevant drivers of online
 communication are expected gratifications <span
 class="citation">(Dienlin and Metzger 2016; Bol et al. 2018; Kezer,
@@ -435,10 +518,9 @@ their privacy when they can receive something more valuable in return
 <span class="citation">(Laufer and Wolfe 1977)</span>. In online
 communication, the most important benefits include social support,
 social capital, entertainment, information-seeking, and
-self-presentation [<span class="citation">Dhir and Tsai (2017)</span>;
-<span class="citation">Ellison, Steinfield, and Lampe (2007)</span>;
-<span class="citation">Krasnova et al. (2010)</span>;
-whitingWhyPeopleUse2013].</p>
+self-presentation <span class="citation">(Dhir and Tsai 2017; Ellison,
+Steinfield, and Lampe 2007; Krasnova et al. 2010; Whiting and Williams
+2013)</span>.</p>
 <p>H1: People who are more concerned about their privacy are less likely
 to communicate actively on a website.</p>
 <p>H2: People who obtain more gratifications from using a website are
@@ -469,13 +551,13 @@ communication—the primary means of connecting with others <span
 class="citation">(Altman 1976)</span>—often requires restraint <span
 class="citation">(Omarzu 2000)</span>. This is especially true for
 social media, which are designed to foster communication and
-participation <span class="citation">(Ellison and Vitak 2015; Masur,
-DiFranzo, and Bazarova 2021)</span>. Actively thinking about whether
-communicating is worthwhile might be the first step not to participate.
-On the other hand, deliberating about privacy might also increase
-communication. In light of the numerous benefits mentioned above, it
-might make sense to conclude that participation is beneficial, thereby
-fostering communication <span class="citation">(Krasnova et al.
+participation <span class="citation">(Ellison and Vitak 2015; Philipp K.
+Masur, DiFranzo, and Bazarova 2021)</span>. Actively thinking about
+whether communicating is worthwhile might be the first step not to
+participate. On the other hand, deliberating about privacy might also
+increase communication. In light of the numerous benefits mentioned
+above, it might make sense to conclude that participation is beneficial,
+thereby fostering communication <span class="citation">(Krasnova et al.
 2010)</span>.</p>
 <p>RQ1: Do people who deliberate more actively about their privacy
 communicate more or less online?</p>
@@ -485,18 +567,17 @@ useful to understand the privacy calculus from the perspective of
 Bounded rationality states that “(1) humans are cognitively constrained;
 (2) these constraints impact decision making; and (3) difficult problems
 reveal the constraints and highlight their significance.” <span
-class="citation">(Bendor 2015, 1303)</span>. Importantly, although human
-behavior is <em>partly</em> irrational, bounded rationality does not
-state that it is <em>completely</em> irrational <span
-class="citation">(Gigerenzer, Selten, and Workshop 2002)</span>.
-Rationality is a continuum. In the context of online privacy,
-rationality is impeded by information asymmetries, presence bias,
-intangibility, illusory control, or herding <span
-class="citation">(Acquisti, Brandimarte, and Loewenstein 2020)</span>.
-It follows that to provide a more complete picture, additional factors
-next to gratifications and concerns should also explain communication.
-Factors less focused on rationality, but more on socio-psychological
-aspects.</p>
+class="citation">(Bendor 2015, 1303)</span>. Although human behavior is
+considered partly irrational, bounded rationality does not state that it
+is completely irrational <span class="citation">(Gigerenzer, Selten, and
+Workshop 2002)</span>. Rationality can hence be understood to exist on a
+continuum. In the context of online privacy, rationality is impeded by
+information asymmetries, presence bias, intangibility, illusory control,
+or herding <span class="citation">(Acquisti, Brandimarte, and
+Loewenstein 2020)</span>. It follows that to provide a more complete
+picture, additional factors next to gratifications and concerns should
+also explain communication. Factors less focused on rationality, but
+more on socio-psychological aspects.</p>
 <p>The two factor perhaps most important when it comes to understanding
 online communication are self-efficacy and trust <span
 class="citation">(Hossain and Wigand 2004; Metzger 2004)</span>. Privacy
@@ -507,19 +588,22 @@ engaging in online communication. If users are more familiar,
 experienced, and knowledgeable in a given online context, they are more
 likely to navigate that online contexts successfully and to communicate
 actively <span class="citation">(Baruh, Secinti, and Cemalcilar 2017;
-Krämer and Schäwel 2020)</span>. People with more privacy self-efficacy
-also engage more successfully in self-withdrawal <span
-class="citation">(Dienlin and Metzger 2016)</span>. Hence, if users
-possess more self-efficacy to participate, they should also communicate
-more.</p>
+Krämer and Schäwel 2020; Park 2013)</span>. People with more privacy
+self-efficacy engage more successfully in self-withdrawal <span
+class="citation">(Dienlin and Metzger 2016)</span> and protective online
+behavior <span class="citation">(Boerman, Kruikemeier, and Zuiderveen
+Borgesius 2021; van Ooijen, Segijn, and Opree 2022)</span>. Hence, if
+users possess more self-efficacy to participate, they should also
+communicate more, and to more fully capture online behavior
+self-efficacy should hence be included.</p>
 <p>H3: People are more likely to communicate on a website when their
 self-efficacy to actively use the website is higher.</p>
 <p>In all situations where people lack experience, control, or
 competence, a central variable to understand behavior is trust <span
 class="citation">(Gefen, Karahanna, and Straub 2003)</span>. Especially
 in online contexts, trust plays a key role <span
-class="citation">(Metzger 2004)</span>. Users often cannot control the
-environment or the way their information is handled <span
+class="citation">(Metzger 2004, 2006)</span>. Users often cannot control
+the environment or the way their information is handled <span
 class="citation">(Acquisti, Brandimarte, and Loewenstein 2020; Bräunlich
 et al. 2020)</span>. Trust either captures “<em>specific</em> beliefs
 dealing primarily with the integrity, benevolence, and ability of
@@ -532,7 +616,8 @@ are different targets of trust, including (a) the information system,
 <span class="citation">(Söllner, Hoffmann, and Leimeister 2016)</span>.
 People who put more trust in the providers of networks, for example,
 disclose more personal information <span class="citation">(Li
-2011)</span>.</p>
+2011)</span>. To comprehensively capture and understand online
+communication, trust should hence be included.</p>
 <p>H4: People are more likely to communicate on a website when they have
 greater trust in the provider, the website, and the other users.</p>
 </div>
@@ -545,12 +630,12 @@ manipulated externally? One of the central tools to afford and govern
 online behavior are popularity cues such as like and dislike buttons
 <span class="citation">(Stsiampkouskaya, Joinson, and Piwek
 2023)</span>. Popularity cues have been shown to affect behavior <span
-class="citation">(Krämer and Schäwel 2020; Masur, DiFranzo, and Bazarova
-2021; Trepte, Scharkow, and Dienlin 2020)</span>: Online comments that
-already have several dislikes are more likely to receive further
-dislikes <span class="citation">(Muchnik, Aral, and Taylor 2013)</span>.
-When users disagree with a post, they are more likely to click on a
-button labeled <em>respect</em> compared to a button labeled
+class="citation">(Krämer and Schäwel 2020; Philipp K. Masur, DiFranzo,
+and Bazarova 2021; Trepte, Scharkow, and Dienlin 2020)</span>: Online
+comments that already have several dislikes are more likely to receive
+further dislikes <span class="citation">(Muchnik, Aral, and Taylor
+2013)</span>. When users disagree with a post, they are more likely to
+click on a button labeled <em>respect</em> compared to a button labeled
 <em>like</em> <span class="citation">(Stroud, Muddiman, and Scacco
 2017)</span>.</p>
 <p>How and why might popularity cues affect the privacy calculus? In
@@ -925,10 +1010,10 @@ model’s <span class="math inline">\(\chi^2\)</span>, RMSEA (90% CI),
 CFI, and SRMR. To exclude confounding influences, I controlled all
 variables for age, gender, and education, which have been shown to
 affect both privacy concerns and online communication <span
-class="citation">(Tifferet 2019)</span>. The preregistered hypotheses
-were tested with a one-sided significance level of 5%; the research
-questions were tested with a two-sided 5% significance level using
-family-wise Bonferroni-Holm correction.</p>
+class="citation">(Philipp K. Masur 2023; Tifferet 2019)</span>. The
+preregistered hypotheses were tested with a one-sided significance level
+of 5%; the research questions were tested with a two-sided 5%
+significance level using family-wise Bonferroni-Holm correction.</p>
 <p>As became apparent when analyzing the data, the preregistered
 analyses had two major problems. First, communication was zero-inflated
 and gamma distributed. Although it is possible to analyze non-normal
@@ -952,18 +1037,18 @@ class="citation">(McElreath 2016)</span>. I also plotted the
 distribution of the effects. For more information on the fitted models,
 see <a href="https://XMtRa.github.io/like_dislike">online companion
 website</a>.</p>
-<p>The data were analyzed using R <span class="citation">(Version 4.2.3;
+<p>The data were analyzed using R <span class="citation">(Version 4.3.0;
 R Core Team 2018)</span> and the R-packages <em>brms</em> <span
-class="citation">(Version 2.19.0; Bürkner 2017, 2018)</span>,
-<em>lavaan</em> <span class="citation">(Version 0.6.16.1845; Rosseel
-2012)</span>, <em>marginaleffects</em> <span class="citation">(Version
-0.11.1; Arel-Bundock 2023)</span>, <em>papaja</em> <span
-class="citation">(Version 0.1.1; Aust and Barth 2018)</span>,
-<em>pwr</em> <span class="citation">(Version 1.3.0; Champely
-2018)</span>, <em>quanteda</em> <span class="citation">(Version 3.2.4;
-Benoit 2018)</span>, <em>semTools</em> <span class="citation">(Version
-0.5.6; Jorgensen et al. 2018)</span>, and <em>tidyverse</em> <span
-class="citation">(Version 2.0.0; Wickham 2017)</span>.</p>
+class="citation">(Bürkner 2017, 2018)</span>, <em>lavaan</em> <span
+class="citation">(Version 0.6.15; Rosseel 2012)</span>,
+<em>marginaleffects</em> <span class="citation">(Arel-Bundock
+2023)</span>, <em>papaja</em> <span class="citation">(Version 0.1.1;
+Aust and Barth 2018)</span>, <em>pwr</em> <span
+class="citation">(Version 1.3.0; Champely 2018)</span>,
+<em>quanteda</em> <span class="citation">(Benoit 2018)</span>,
+<em>semTools</em> <span class="citation">(Version 0.5.6; Jorgensen et
+al. 2018)</span>, and <em>tidyverse</em> <span class="citation">(Version
+2.0.0; Wickham 2017)</span>.</p>
 </div>
 </div>
 <div id="results" class="section level1">
@@ -1001,12 +1086,12 @@ multicollinearity might occur.</p>
 <h2>Preregistered Analyses</h2>
 <p>First, as preregistered I ran a structural equation model with
 multiple predictors. The model fit the data okay, <span
-class="math inline">\(\chi^2\)</span>(387) = 934.98, <em>p</em> &lt;
-.001, CFI = .94, RMSEA = .05, 90% CI [.05, .05], SRMR = .05. Regarding
-H1, results showed that gratifications did not predict communication
-(<span class="math inline">\(\beta\)</span> = -.02, = -0.04, 95% CI
-[-0.19, 0.12], = -0.45, = .327; one-sided). With regard to H2, privacy
-concerns did not significantly predict communication (<span
+class="math inline">\(\chi^2\)</span>(387) = 934.98, &lt; .001, cfi =
+.94, rmsea = .05, 90% CI [.05, .05], srmr = .05. Regarding H1, results
+showed that gratifications did not predict communication (<span
+class="math inline">\(\beta\)</span> = -.02, = -0.04, 95% CI [-0.19,
+0.12], = -0.45, = .327; one-sided). With regard to H2, privacy concerns
+did not significantly predict communication (<span
 class="math inline">\(\beta\)</span> &gt; -.01, = -0.01, 95% CI [-0.30,
 0.28], = -0.07, = .473; one-sided). RQ1 similarly revealed that privacy
 deliberation did not predict communication (<span
@@ -1219,10 +1304,9 @@ large. For each point-increase in gratifications, participants wrote 27
 words more. Attaining benefits online is hence a strong predictor of
 online communication. Together, the results provide further support for
 the privacy calculus and against the privacy paradox <span
-class="citation">(Baruh, Secinti, and Cemalcilar 2017; Dienlin
-2019)</span>. Communication online does not seem to be overly illogical.
-To large extents, it is aligned with respondents’ concerns and
-benefits.</p>
+class="citation">(Baruh, Secinti, and Cemalcilar 2017)</span>.
+Communication online does not seem to be overly illogical. To large
+extents, it is aligned with respondents’ concerns and benefits.</p>
 <p>Results showed that trust and self-efficacy were important drivers of
 online communication. Participants who placed more trust into the
 website, the providers, and the other community members communicated
@@ -1402,6 +1486,13 @@ Benoit, Kenneth. 2018. <em>Quanteda: Quantitative Analysis of Textual
 Data</em>. <a
 href="https://doi.org/10.5281/zenodo.1004683">https://doi.org/10.5281/zenodo.1004683</a>.
 </div>
+<div id="ref-boermanExploringMotivationsOnline2021a" class="csl-entry">
+Boerman, Sophie C., Sanne Kruikemeier, and Frederik J. Zuiderveen
+Borgesius. 2021. <span>“Exploring Motivations for Online Privacy
+Protection Behavior: <span>Insights</span> from Panel Data.”</span>
+<em>Communication Research</em> 48 (7): 953–77. <a
+href="https://doi.org/10.1177/0093650218800915">https://doi.org/10.1177/0093650218800915</a>.
+</div>
 <div id="ref-bolUnderstandingEffectsPersonalization2018"
 class="csl-entry">
 Bol, Nadine, Tobias Dienlin, Sanne Kruikemeier, Marijn Sax, Sophie C.
@@ -1485,16 +1576,6 @@ Halft, M. Herz, and J. M. Mönig, 105–22. <span>Passau, Germany</span>:
 ———. 2017. <em>The Psychology of Privacy: <span>Analyzing</span>
 Processes of Media Use and Interpersonal Communication</em>.
 <span>Hohenheim, Germany</span>: <span>University of Hohenheim</span>.
-<a
-href="http://opus.uni-hohenheim.de/volltexte/2017/1315/">http://opus.uni-hohenheim.de/volltexte/2017/1315/</a>.
-</div>
-<div id="ref-dienlinPrivacyParadoxAus2019" class="csl-entry">
-———. 2019. <span>“Das <span>Privacy Paradox</span> Aus Psychologischer
-<span>Perspektive</span> [<span>The</span> Privacy Paradox from a
-Psychological Perspective].”</span> In <em>Handbuch
-<span>Datenrecht</span> Und <span>Digitalisierung</span></em>, edited by
-Louisa Specht, Susanne Werry, and Nikola Werry, 305–23. <span>Berlin,
-Germany</span>: <span>Erich Schmidt Verlag.</span>
 </div>
 <div id="ref-dienlinAgendaOpenScience2021" class="csl-entry">
 Dienlin, Tobias, Niklas Johannes, Nicholas David Bowman, Philipp K.
@@ -1505,10 +1586,9 @@ href="https://doi.org/10.1093/joc/jqz052">https://doi.org/10.1093/joc/jqz052</a>
 </div>
 <div id="ref-dienlinExtendedPrivacyCalculus2016" class="csl-entry">
 Dienlin, Tobias, and Miriam J. Metzger. 2016. <span>“An Extended Privacy
-Calculus Model for <span>SNSs</span>—<span>Analyzing</span>
-Self-Disclosure and Self-Withdrawal in a Representative
-<span>U</span>.<span>S</span>. Sample.”</span> <em>Journal of
-Computer-Mediated Communication</em> 21 (5): 368–83. <a
+Calculus Model for <span>SNSs</span> Self-Disclosure and Self-Withdrawal
+in a Representative <span>U</span>.<span>S</span>. Sample.”</span>
+<em>Journal of Computer-Mediated Communication</em> 21 (5): 368–83. <a
 href="https://doi.org/10.1111/jcc4.12163">https://doi.org/10.1111/jcc4.12163</a>.
 </div>
 <div id="ref-dienlinDoesPrivacyParadox2021" class="csl-entry">
@@ -1548,8 +1628,7 @@ href="https://doi.org/10.1080/03637751.2017.1332418">https://doi.org/10.1080/036
 <div id="ref-gefenTrustTAMOnline2003" class="csl-entry">
 Gefen, David, Elena Karahanna, and Detmar W. Straub. 2003. <span>“Trust
 and <span>TAM</span> in Online Shopping: <span>An</span> Integrated
-Model.”</span> <em>MIS Q</em> 27 (1): 5190. <a
-href="http://dl.acm.org/citation.cfm?id=2017181.2017185">http://dl.acm.org/citation.cfm?id=2017181.2017185</a>.
+Model.”</span> <em>MIS Q</em> 27 (1): 5190.
 </div>
 <div id="ref-gibsonEcologicalApproachVisual2015" class="csl-entry">
 Gibson, James J. 2015. <em>The Ecological Approach to Visual
@@ -1559,9 +1638,8 @@ Press</span>.
 <div id="ref-gigerenzerBoundedRationalityAdaptive2002"
 class="csl-entry">
 Gigerenzer, Gerd, Reinhard Selten, and Dahlem Workshop, eds. 2002.
-<em>Bounded Rationality: The Adaptive Toolbox</em>. 1st ed. Dahlem
-Workshop Reports. <span>Cambridge, MA</span>: <span>MIT Press</span>. <a
-href="https://external.dandelon.com/download/attachments/dandelon/ids/DE0041B967843B1BDDEE6C12578B1001CB0D1.pdf">https://external.dandelon.com/download/attachments/dandelon/ids/DE0041B967843B1BDDEE6C12578B1001CB0D1.pdf</a>.
+<em>Bounded Rationality: The Adaptive Toolbox</em>. First. Dahlem
+Workshop Reports. <span>Cambridge, MA</span>: <span>MIT Press</span>.
 </div>
 <div id="ref-hossainICTEnabledVirtual2004" class="csl-entry">
 Hossain, Liaquat, and Rolf T. Wigand. 2004. <span>“<span>ICT</span>
@@ -1580,12 +1658,12 @@ Kezer, Murat, Tobias Dienlin, and Lemi Baruh. 2022. <span>“Getting the
 Privacy Calculus Right: <span>Analyzing</span> the Relations Between
 Privacy Concerns, Expected Benefits, and Self-Disclosure Using Response
 Surface Analysis.”</span> <em>Cyberpsychology: Journal of Psychosocial
-Research on Cyberspace</em> 16 (4, 4). <a
+Research on Cyberspace</em> 16 (4). <a
 href="https://doi.org/10.5817/CP2022-4-1">https://doi.org/10.5817/CP2022-4-1</a>.
 </div>
 <div id="ref-klinePrinciplesPracticeStructural2016" class="csl-entry">
 Kline, Rex B. 2016. <em>Principles and Practice of Structural Equation
-Modeling</em>. 4th ed. Methodology in the Social Sciences. <span>New
+Modeling</em>. Fourth. Methodology in the Social Sciences. <span>New
 York, NY</span>: <span>The Guilford Press</span>.
 </div>
 <div id="ref-knijnenburgDeathPrivacyCalculus2017" class="csl-entry">
@@ -1628,11 +1706,26 @@ Concerns: <span>Literature</span> Review and an Integrative
 Framework.”</span> <em>Communications of the Association for Information
 Systems</em> 28 (January): 453–96.
 </div>
+<div id="ref-masurUnderstandingEffectsConceptual2023" class="csl-entry">
+Masur, Philipp K. 2023. <span>“Understanding the Effects of Conceptual
+and Analytical Choices on <span>‘Finding’</span> the Privacy Paradox:
+<span>A</span> Specification Curve Analysis of Large-Scale Survey
+Data.”</span> <em>Information, Communication &amp; Society</em> 26 (3):
+584–602. <a
+href="https://doi.org/10.1080/1369118X.2021.1963460">https://doi.org/10.1080/1369118X.2021.1963460</a>.
+</div>
 <div id="ref-masurBehavioralContagionSocial2021" class="csl-entry">
 Masur, Philipp K., Dominic DiFranzo, and Natalie N. Bazarova. 2021.
 <span>“Behavioral Contagion on Social Media: <span>Effects</span> of
 Social Norms, Design Interventions, and Critical Media Literacy on
 Self-Disclosure.”</span> <em>Plos One</em> 16 (7): e0254670.
+</div>
+<div id="ref-masurTransformativeNotHow2021" class="csl-entry">
+Masur, Philipp K, and Sabine Trepte. 2021. <span>“Transformative or Not?
+<span>How</span> Privacy Violation Experiences Influence Online Privacy
+Concerns and Online Information Disclosure.”</span> <em>Human
+Communication Research</em> 47 (1): 49–74. <a
+href="https://doi.org/10.1093/hcr/hqaa012">https://doi.org/10.1093/hcr/hqaa012</a>.
 </div>
 <div id="ref-mcelreathStatisticalRethinkingBayesian2016"
 class="csl-entry">
@@ -1642,18 +1735,17 @@ McElreath, Richard. 2016. <em>Statistical Rethinking: A
 Texts in Statistical Science Series 122. <span>Boca Raton</span>:
 <span>CRC Press/Taylor &amp; Francis Group</span>.
 </div>
-<div id="ref-meierPrivacyCalculusRevisited2022" class="csl-entry">
-Meier, Yannic, and Nicole C. Krämer. 2022. <span>“The Privacy Calculus
-Revisited: <span>An</span> Empirical Investigation of Online Privacy
-Decisions on Between- and Within-Person Levels.”</span>
-<em>Communication Research</em>, July, 00936502221102101. <a
-href="https://doi.org/10.1177/00936502221102101">https://doi.org/10.1177/00936502221102101</a>.
-</div>
 <div id="ref-metzgerPrivacyTrustDisclosure2004" class="csl-entry">
 Metzger, Miriam J. 2004. <span>“Privacy, Trust, and Disclosure:
 <span>Exploring</span> Barriers to Electronic Commerce.”</span>
 <em>Journal of Computer-Mediated Communication</em> 9 (4). <a
 href="https://doi.org/10.1111/j.1083-6101.2004.tb00292.x">https://doi.org/10.1111/j.1083-6101.2004.tb00292.x</a>.
+</div>
+<div id="ref-metzgerEffectsSiteVendor2006a" class="csl-entry">
+———. 2006. <span>“Effects of Site, Vendor, and Consumer Characteristics
+on Web Site Trust and Disclosure.”</span> <em>Communication
+Research</em> 33 (3): 155–79. <a
+href="https://doi.org/10.1177/0093650206287076">https://doi.org/10.1177/0093650206287076</a>.
 </div>
 <div id="ref-muchnikSocialInfluenceBias2013" class="csl-entry">
 Muchnik, Lev, Sinan Aral, and Sean J. Taylor. 2013. <span>“Social
@@ -1662,9 +1754,8 @@ Influence Bias: <span>A</span> Randomized Experiment.”</span>
 href="https://doi.org/10.1126/science.1240466">https://doi.org/10.1126/science.1240466</a>.
 </div>
 <div id="ref-newyorkpublicradioPrivacyParadox2018" class="csl-entry">
-New York Public Radio. 2018. <span>“The Privacy Paradox.”</span> January
-1, 2018. <a
-href="https://project.wnyc.org/privacy-paradox/">https://project.wnyc.org/privacy-paradox/</a>.
+New York Public Radio. 2018. <span>“The Privacy Paradox.”</span>
+https://project.wnyc.org/privacy-paradox/.
 </div>
 <div id="ref-omarzuDisclosureDecisionModel2000" class="csl-entry">
 Omarzu, Julia. 2000. <span>“A Disclosure Decision Model:
@@ -1672,6 +1763,11 @@ Omarzu, Julia. 2000. <span>“A Disclosure Decision Model:
 Self-Disclose.”</span> <em>Personality and Social Psychology Review</em>
 4 (2): 174–85. <a
 href="https://doi.org/10.1207/S15327957PSPR0402_5">https://doi.org/10.1207/S15327957PSPR0402_5</a>.
+</div>
+<div id="ref-parkDigitalLiteracyPrivacy2013a" class="csl-entry">
+Park, Yong Jin. 2013. <span>“Digital Literacy and Privacy Behavior
+Online.”</span> <em>Communication Research</em> 40 (2): 215–36. <a
+href="https://doi.org/10.1177/0093650211418338">https://doi.org/10.1177/0093650211418338</a>.
 </div>
 <div id="ref-parrySystematicReviewMetaanalysis2021" class="csl-entry">
 Parry, Douglas A., Brittany I. Davidson, Craig J. R. Sewall, Jacob T.
@@ -1767,6 +1863,14 @@ Social Media Liking.”</span> <em>Journal of Computer-Mediated
 Communication</em> 28 (2): zmac036. <a
 href="https://doi.org/10.1093/jcmc/zmac036">https://doi.org/10.1093/jcmc/zmac036</a>.
 </div>
+<div id="ref-stubenvollLivingEasyEyes2022" class="csl-entry">
+Stubenvoll, Marlis, Alice Binder, Selina Noetzel, Melanie Hirsch, and
+Jörg Matthes. 2022. <span>“Living Is Easy with Eyes Closed:
+<span>Avoidance</span> of Targeted Political Advertising in Response to
+Privacy Concerns, Perceived Personalization, and Overload.”</span>
+<em>Communication Research</em>, November, 00936502221130840. <a
+href="https://doi.org/10.1177/00936502221130840">https://doi.org/10.1177/00936502221130840</a>.
+</div>
 <div id="ref-sumnerFunctionalApproachFacebook2017" class="csl-entry">
 Sumner, Erin M., Luisa Ruge-Jones, and Davis Alcorn. 2017. <span>“A
 Functional Approach to the <span>Facebook</span> Like Button:
@@ -1787,9 +1891,8 @@ href="https://doi.org/10.1016/j.chb.2015.06.006">https://doi.org/10.1016/j.chb.2
 Taddicken, Monika, and Cornelia Jers. 2011. <span>“The Uses of Privacy
 Online: <span>Trading</span> a Loss of Privacy for Social Web
 Gratifications?”</span> In <em>Privacy Online: <span>Perspectives</span>
-on Privacy and Self-Disclosure in the Social Web</em>, by Sabine Trepte
-and Leonard Reinecke, edited by Sabine Trepte and Leonard Reinecke,
-143–58. <span>Berlin, Germany</span>: <span>Springer</span>.
+on Privacy and Self-Disclosure in the Social Web</em>, 143–58.
+<span>Berlin, Germany</span>: <span>Springer</span>.
 </div>
 <div id="ref-tifferetGenderDifferencesPrivacy2019a" class="csl-entry">
 Tifferet, Sigal. 2019. <span>“Gender Differences in Privacy Tendencies
@@ -1803,6 +1906,12 @@ Privacy Calculus Contextualized: <span>The</span> Influence of
 Affordances.”</span> <em>Computers in Human Behavior</em> 104 (March):
 106115. <a
 href="https://doi.org/10.1016/j.chb.2019.08.022">https://doi.org/10.1016/j.chb.2019.08.022</a>.
+</div>
+<div id="ref-vanooijenPrivacyCynicismIts2022" class="csl-entry">
+van Ooijen, Iris, Claire M. Segijn, and Suzanna J. Opree. 2022.
+<span>“Privacy Cynicism and Its Role in Privacy Decision-Making.”</span>
+<em>Communication Research</em>, February, 00936502211060984. <a
+href="https://doi.org/10.1177/00936502211060984">https://doi.org/10.1177/00936502211060984</a>.
 </div>
 <div id="ref-vanhoveCollinearityIsnDisease2021" class="csl-entry">
 Vanhove, Jan. 2021. <span>“Collinearity Isn’t a Disease That Needs
@@ -1819,6 +1928,12 @@ href="https://doi.org/10.2307/30036540">https://doi.org/10.2307/30036540</a>.
 Westin, A. F. 1967. <em>Privacy and Freedom</em>. <span>New York,
 NY</span>: <span>Atheneum</span>.
 </div>
+<div id="ref-whitingWhyPeopleUse2013" class="csl-entry">
+Whiting, Anita, and David Williams. 2013. <span>“Why People Use Social
+Media: A Uses and Gratifications Approach.”</span> <em>Qualitative
+Market Research: An International Journal</em> 16 (4): 362–69. <a
+href="https://doi.org/10.1108/QMR-06-2013-0041">https://doi.org/10.1108/QMR-06-2013-0041</a>.
+</div>
 <div id="ref-R-tidyverse" class="csl-entry">
 Wickham, Hadley. 2017. <em>Tidyverse: Easily Install and Load the
 ’Tidyverse’</em>. <a
@@ -1829,6 +1944,8 @@ href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/p
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -1861,6 +1978,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

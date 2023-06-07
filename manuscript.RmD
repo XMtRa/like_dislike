@@ -7,7 +7,7 @@ abstract          : "The privacy calculus model states that people weigh risks a
 
 keywords          : "privacy calculus, communication, popularity cues, field experiment, preregistration"
 
-bibliography      : 
+bibliography      :
   - [bibliography/r-references.bib]
   - [bibliography/references.bib]
 floatsintext      : yes
@@ -16,7 +16,7 @@ figurelist        : no
 tablelist         : no
 footnotelist      : no
 linenumbers       : yes
-mask              : no
+mask              : yes
 wordcount         : "`r wordcountaddin::word_count('manuscript.Rmd')`"
 draft             : no
 # output            : papaja::apa6_pdf
@@ -48,12 +48,12 @@ draft             : no
 # 
 # csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
 # output            : papaja::apa6_docx
-# output:
-#   html_document:
-#     toc: TRUE
-#     toc_float:
-#       collapsed: FALSE
-#     toc_depth: 2
+output:
+  html_document:
+    toc: TRUE
+    toc_float:
+      collapsed: FALSE
+      toc_depth: 2
 ---
 
 ```{r include=F}
@@ -126,8 +126,8 @@ load("data/workspace.rData")
 
 According to the privacy paradox, the way users share information online is erratic [@barnesPrivacyParadoxSocial2006]:
 People communicate much personal information online, although being strongly concerned about their privacy [@taddickenUsesPrivacyOnline2011].
-However, despite its popularity in both academic research [@dienlinPrivacyParadoxAus2019] and the public press [@newyorkpublicradioPrivacyParadox2018], empirical support for the privacy paradox is tenuous [@baruhOnlinePrivacyConcerns2017; @dienlinDoesPrivacyParadox2021]. 
-Research is increasingly building on the privacy calculus model, which states that communication online can be explained by perceived risks and expected benefits [@bolUnderstandingEffectsPersonalization2018; @krasnovaOnlineSocialNetworks2010; @meierPrivacyCalculusRevisited2022].
+However, despite its popularity in both academic research [@masurUnderstandingEffectsConceptual2023] and the public press [@newyorkpublicradioPrivacyParadox2018], empirical support for the privacy paradox is tenuous [@baruhOnlinePrivacyConcerns2017; @dienlinDoesPrivacyParadox2021]. 
+Research is increasingly building on the privacy calculus model, which states that communication online can be explained by perceived risks and expected benefits [@bolUnderstandingEffectsPersonalization2018; @krasnovaOnlineSocialNetworks2010].
 
 Although the privacy calculus has gained momentum in academic research, several important questions remain unanswered. 
 First, the privacy calculus' empirical foundation needs to be improved [@knijnenburgDeathPrivacyCalculus2017]. 
@@ -157,12 +157,13 @@ When are we willing to engage in a conversation?
 It builds on the calculus of behavior [@lauferPrivacyConceptSocial1977] and states that people are weighing risks and benefits before engaging in communication.
 Communication is closely related to privacy, which is defined as a "voluntary and temporary withdrawal of a person from the general society" [@westinPrivacyFreedom1967, p. 7].
 People regulate their privacy by deciding what and what not to communicate [@dienlinPrivacyProcessModel2014].
-Disclosing information can be risky, and if people with higher privacy needs and privacy concerns are less likely to communicate online [@baruhOnlinePrivacyConcerns2017; @krasnovaOnlineSocialNetworks2010; masurTransformativeNotHow2021; @meierPrivacyCalculusRevisited2022].
+Disclosing information can be risky, and if people with higher privacy needs and privacy concerns are less likely to communicate online [@baruhOnlinePrivacyConcerns2017; @krasnovaOnlineSocialNetworks2010; @masurTransformativeNotHow2021; @masurUnderstandingEffectsConceptual2023].
 According to a meta-analysis by @baruhOnlinePrivacyConcerns2017, the effect is small but significant (*r* = -.13).
+Similarly, people who are more concerned about their privacy also engage in more privacy protection behaviors [@baruhOnlinePrivacyConcerns2017; @stubenvollLivingEasyEyes2022].
 
 Outweighing concerns, the most relevant drivers of online communication are expected gratifications [@dienlinExtendedPrivacyCalculus2016; @bolUnderstandingEffectsPersonalization2018; @kezerGettingPrivacyCalculus2022].
 People are happy to trade in parts of their privacy when they can receive something more valuable in return [@lauferPrivacyConceptSocial1977].
-In online communication, the most important benefits include social support, social capital, entertainment, information-seeking, and self-presentation [@dhirUnderstandingRelationshipIntensity2017; @ellisonBenefitsFacebookFriends2007; @krasnovaOnlineSocialNetworks2010; whitingWhyPeopleUse2013].
+In online communication, the most important benefits include social support, social capital, entertainment, information-seeking, and self-presentation [@dhirUnderstandingRelationshipIntensity2017; @ellisonBenefitsFacebookFriends2007; @krasnovaOnlineSocialNetworks2010; @whitingWhyPeopleUse2013].
 
 H1: People who are more concerned about their privacy are less likely to communicate actively on a website.
 
@@ -190,26 +191,27 @@ RQ1: Do people who deliberate more actively about their privacy communicate more
 The aforementioned weighing process is not flawless or perfect.
 It is useful to understand the privacy calculus from the perspective of _bounded rationality_ [@simonBoundedRationality1990].
 Bounded rationality states that "(1) humans are cognitively constrained; (2) these constraints impact decision making; and (3) difficult problems reveal the constraints and highlight their significance." [@bendorBoundedRationality2015, p. 1303].
-Importantly, although human behavior is _partly_ irrational, bounded rationality does not state that it is _completely_ irrational [@gigerenzerBoundedRationalityAdaptive2002].
-Rationality is a continuum. 
+Although human behavior is considered partly irrational, bounded rationality does not state that it is completely irrational [@gigerenzerBoundedRationalityAdaptive2002].
+Rationality can hence be understood to exist on a continuum. 
 In the context of online privacy, rationality is impeded by information asymmetries, presence bias, intangibility, illusory control, or herding [@acquistiSecretsLikesDrive2020].
 It follows that to provide a more complete picture, additional factors next to gratifications and concerns should also explain communication.
 Factors less focused on rationality, but more on socio-psychological aspects.
 
 The two factor perhaps most important when it comes to understanding online communication are self-efficacy and trust [@hossainICTEnabledVirtual2004; @metzgerPrivacyTrustDisclosure2004].
 Privacy violations create psychological distress [@ledbetterParentchildPrivacyBoundary2019], experiencing online contexts as a safe space that users can sufficiently control is important for engaging in online communication. 
-If users are more familiar, experienced, and knowledgeable in a given online context, they are more likely to navigate that online contexts successfully and to communicate actively [@baruhOnlinePrivacyConcerns2017; @kramerMasteringChallengeBalancing2020].
-People with more privacy self-efficacy also engage more successfully in self-withdrawal [@dienlinExtendedPrivacyCalculus2016].
-Hence, if users possess more self-efficacy to participate, they should also communicate more.
+If users are more familiar, experienced, and knowledgeable in a given online context, they are more likely to navigate that online contexts successfully and to communicate actively [@baruhOnlinePrivacyConcerns2017; @kramerMasteringChallengeBalancing2020; @parkDigitalLiteracyPrivacy2013a].
+People with more privacy self-efficacy engage more successfully in self-withdrawal [@dienlinExtendedPrivacyCalculus2016] and protective online behavior [@boermanExploringMotivationsOnline2021a; @vanooijenPrivacyCynicismIts2022].
+Hence, if users possess more self-efficacy to participate, they should also communicate more, and to more fully capture online behavior self-efficacy should hence be included.
 
 H3: People are more likely to communicate on a website when their self-efficacy to actively use the website is higher.
 
 In all situations where people lack experience, control, or competence, a central variable to understand behavior is trust [@gefenTrustTAMOnline2003].
-Especially in online contexts, trust plays a key role [@metzgerPrivacyTrustDisclosure2004].
+Especially in online contexts, trust plays a key role [@metzgerPrivacyTrustDisclosure2004; @metzgerEffectsSiteVendor2006a].
 Users often cannot control the environment or the way their information is handled [@acquistiSecretsLikesDrive2020; @braunlichLinkingLooseEnds2020].
 Trust either captures "_specific_ beliefs dealing primarily with the integrity, benevolence, and ability of another party" [@gefenTrustTAMOnline2003, p. 55, emphasis added] or a "_general_ belief that another party can be trusted" [@gefenTrustTAMOnline2003, p.55, emphasis added]. 
 In online contexts, there are different targets of trust, including (a) the information system, (b) the provider, (c) the Internet, and (d) the community of other users [@sollnerWhyDifferentTrust2016]. 
 People who put more trust in the providers of networks, for example, disclose more personal information [@liEmpiricalStudiesOnline2011]. 
+To comprehensively capture and understand online communication, trust should hence be included.
 
 H4: People are more likely to communicate on a website when they have greater trust in the provider, the website, and the other users.
 
@@ -391,7 +393,7 @@ As preregistered, all hypotheses and research questions were initially tested us
 The influence of the three websites was analyzed using contrast coding.
 Because the assumption of multivariate normality was violated, I estimated the models using robust maximum likelihood [@klinePrinciplesPracticeStructural2016]. 
 As recommended by @klinePrinciplesPracticeStructural2016, to assess global fit I report the model's $\chi^2$, RMSEA (90% CI), CFI, and SRMR. 
-To exclude confounding influences, I controlled all variables for age, gender, and education, which have been shown to affect both privacy concerns and online communication [@tifferetGenderDifferencesPrivacy2019a].
+To exclude confounding influences, I controlled all variables for age, gender, and education, which have been shown to affect both privacy concerns and online communication [@masurUnderstandingEffectsConceptual2023; @tifferetGenderDifferencesPrivacy2019a].
 The preregistered hypotheses were tested with a one-sided significance level of 5%; the research questions were tested with a two-sided 5% significance level using family-wise Bonferroni-Holm correction. 
 
 As became apparent when analyzing the data, the preregistered analyses had two major problems.
@@ -545,7 +547,7 @@ Participants who received more gratifications wrote substantially more words.
 The effect was even larger, almost twice as large.
 For each point-increase in gratifications, participants wrote 27 words more. 
 Attaining benefits online is hence a strong predictor of online communication.
-Together, the results provide further support for the privacy calculus and against the privacy paradox [@baruhOnlinePrivacyConcerns2017; @dienlinPrivacyParadoxAus2019].
+Together, the results provide further support for the privacy calculus and against the privacy paradox [@baruhOnlinePrivacyConcerns2017].
 Communication online does not seem to be overly illogical. 
 To large extents, it is aligned with respondents' concerns and benefits.
 
