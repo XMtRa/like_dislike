@@ -17,7 +17,7 @@ tablelist         : no
 footnotelist      : no
 linenumbers       : yes
 mask              : yes
-wordcount         : "`r wordcountaddin::word_count('manuscript.Rmd')`"
+wordcount         : "8,187"
 draft             : no
 # output            : papaja::apa6_pdf
 # documentclass     : "apa6"
@@ -157,8 +157,10 @@ When are we willing to engage in a conversation?
 It builds on the calculus of behavior [@lauferPrivacyConceptSocial1977] and states that people are weighing risks and benefits before engaging in communication.
 Communication is closely related to privacy, which is defined as a "voluntary and temporary withdrawal of a person from the general society" [@westinPrivacyFreedom1967, p. 7].
 People regulate their privacy by deciding what and what not to communicate [@dienlinPrivacyProcessModel2014].
-Disclosing information can be risky, and if people with higher privacy needs and privacy concerns are less likely to communicate online [@baruhOnlinePrivacyConcerns2017; @krasnovaOnlineSocialNetworks2010; @masurTransformativeNotHow2021; @masurUnderstandingEffectsConceptual2023].
-According to a meta-analysis by @baruhOnlinePrivacyConcerns2017, the effect is small but significant (*r* = -.13).
+Sharing information carries risks, as recipients may reuse it in different contexts, potentially harming the original sender [@masurBehavioralContagionSocial2021].
+As a result, people who aim to avoid risks should be included to share less information, especially in online contexts where audiences are much larger [@vitakImpactContextCollapse2012].
+Indeed, empirical research confirms that people with higher privacy needs and privacy concerns are less likely to communicate online [@krasnovaOnlineSocialNetworks2010; @masurTransformativeNotHow2021; @masurUnderstandingEffectsConceptual2023].
+This finding is now confirmed by several meta-analyses and reviews [@baruhOnlinePrivacyConcerns2017; @dienlinDoesPrivacyParadox2021; @gerberExplainingPrivacyParadox2018].
 Similarly, people who are more concerned about their privacy also engage in more privacy protection behaviors [@baruhOnlinePrivacyConcerns2017; @stubenvollLivingEasyEyes2022].
 
 Outweighing concerns, the most relevant drivers of online communication are expected gratifications [@dienlinExtendedPrivacyCalculus2016; @bolUnderstandingEffectsPersonalization2018; @kezerGettingPrivacyCalculus2022].
@@ -173,7 +175,7 @@ H2: People who obtain more gratifications from using a website are more likely t
 
 Although privacy calculus implies that people explicitly compare benefits and risks before communicating online, prior research has neglected this aspect [@knijnenburgDeathPrivacyCalculus2017].
 Only observing that privacy concerns or expected gratifications and communication online are related does not prove that an explicit weighing process took place [@knijnenburgDeathPrivacyCalculus2017]. 
-Instead, we need to analyze if, and if so by how much, people actively deliberate about their privacy, and whether doing so influences their decision to communicate.
+Instead, we need to analyze if, and if so by how much, people actively deliberate about their privacy, and whether doing so influences their willingness to communicate.
 Self-disclosure theory [@omarzuDisclosureDecisionModel2000;  @altmanPrivacyConceptualAnalysis1976] suggests that if the benefits of communication are attractive, deciding whether or not to communicate is a "conscious and deliberative process"  [@omarzuDisclosureDecisionModel2000, p. 183].
 I hence introduce and investigate a novel concept termed _privacy deliberation_.
 Privacy deliberation captures the extent to which individuals explicitly compare risks and benefits before communicating with others.
@@ -183,12 +185,16 @@ On the one hand, it could reduce subsequent communication.
 Refraining from communication---the primary means of connecting with others [@altmanPrivacyConceptualAnalysis1976]---often requires restraint [@omarzuDisclosureDecisionModel2000]. 
 This is especially true for social media, which are designed to foster communication and participation [@ellisonSocialNetworkSite2015; @masurBehavioralContagionSocial2021].
 Actively thinking about whether communicating is worthwhile might be the first step not to participate.
-On the other hand, deliberating about privacy might also increase communication.
+In addition, actively reflecting about one's behavior represents a central and Type 2 approach toward decision making, which is often associated with more critical and cautious behavior [@kahnemanThinkingFastSlow2011; @pettyCommunicationPersuasionCentral1986].
+
+On the other hand, deliberating about privacy might also increase communication. 
+The default behavior in online contexts is passively browsing the content, but not actively engaging in communication [@ozimekActivePassiveBehavior2023]. 
+Especially in new contexts without prior experience, actively pondering one's options might trigger users to leave their default state of passiveness and to become active and involved.
 In light of the numerous benefits mentioned above, it might make sense to conclude that participation is beneficial, thereby fostering communication [@krasnovaOnlineSocialNetworks2010].
 
 RQ1: Do people who deliberate more actively about their privacy communicate more or less online?
 
-The aforementioned weighing process is not flawless or perfect.
+<!-- The aforementioned weighing process is not flawless or perfect. -->
 It is useful to understand the privacy calculus from the perspective of _bounded rationality_ [@simonBoundedRationality1990].
 Bounded rationality states that "(1) humans are cognitively constrained; (2) these constraints impact decision making; and (3) difficult problems reveal the constraints and highlight their significance." [@bendorBoundedRationality2015, p. 1303].
 Although human behavior is considered partly irrational, bounded rationality does not state that it is completely irrational [@gigerenzerBoundedRationalityAdaptive2002].
@@ -197,7 +203,7 @@ In the context of online privacy, rationality is impeded by information asymmetr
 It follows that to provide a more complete picture, additional factors next to gratifications and concerns should also explain communication.
 Factors less focused on rationality, but more on socio-psychological aspects.
 
-The two factor perhaps most important when it comes to understanding online communication are self-efficacy and trust [@hossainICTEnabledVirtual2004; @metzgerPrivacyTrustDisclosure2004].
+The two factors perhaps most important when it comes to understanding online communication are self-efficacy and trust [@hossainICTEnabledVirtual2004; @metzgerPrivacyTrustDisclosure2004].
 Privacy violations create psychological distress [@ledbetterParentchildPrivacyBoundary2019], experiencing online contexts as a safe space that users can sufficiently control is important for engaging in online communication. 
 If users are more familiar, experienced, and knowledgeable in a given online context, they are more likely to navigate that online contexts successfully and to communicate actively [@baruhOnlinePrivacyConcerns2017; @kramerMasteringChallengeBalancing2020; @parkDigitalLiteracyPrivacy2013a].
 People with more privacy self-efficacy engage more successfully in self-withdrawal [@dienlinExtendedPrivacyCalculus2016] and protective online behavior [@boermanExploringMotivationsOnline2021a; @vanooijenPrivacyCynicismIts2022].
@@ -244,6 +250,7 @@ To illustrate, likes are affirmative and embody the positivity bias of social me
 Receiving a like online is similar to receiving a compliment offline [@carrPredictingThresholdPerceived2018; @sumnerFunctionalApproachFacebook2017].
 Like-buttons afford and emphasize a _gain frame_ [@rosoffHeuristicsBiasesCyber2013].
 These gains can be garnered only through active participation. 
+In situations where people can gain immediate positive outcomes, concerns and risks that are more vague and in the future often become less relevant [@ainslieHyperbolicDiscounting1992].
 Because like buttons emphasize positive outcomes, it is likely that concerns decrease. 
 In situations where there is more to win, people might also more actively deliberate about whether or not to communicate. 
 Dislikes, instead, represent a punishment, introducing a _loss frame_. 
@@ -252,9 +259,9 @@ Privacy concerns should not be reduced anymore:
 People who are more concerned about their privacy are also more shy and risk averse [@dienlinPsychologyPrivacyAnalyzing2017].
 Implementing the dislike button might therefore increase privacy concerns, canceling out the positive effects of the like button. 
 
-H5.	People who use a website with like buttons (a) communicate more, (b) obtain more gratifications, (c) are less concerned about their privacy, and (d) deliberate more about whether they should communicate online.
+H5.	Compared to a control group with no like and dislike buttons, people who use a website with like buttons (a) communicate more; (b) obtain more gratifications; (c) are less concerned about their privacy; and (d) deliberate more about whether they should communicate online.
 
-H6.	People who use a website with like _and_ dislike buttons (a) communicate more, (b) obtain more gratifications, and (c) deliberate more about whether they should communicate online.
+H6.	Compared to a control group with no like and dislike buttons, people who use a website with like _and_ dislike buttons (a) communicate more; (b) obtain more gratifications; and (c) deliberate more about whether they should communicate online.
 
 H7.	Compared to people who use a website with only like buttons, people who use a website with like and dislike buttons (a) are more concerned about their privacy, and (b) deliberate more about whether they should communicate online.
 
@@ -321,7 +328,7 @@ Considered unreasonably fast, `r n_speeding %>% english()` participants were exc
 To detect atypical data and response patterns, Cook's distance was calculated.
 I excluded `r english(n_resp_pattern)` participants with clear response patterns (i.e., straight-lining). 
 The final sample included _N_ = `r n_final` participants.
-The sample characteristics at T1 and T2 were as follows: 
+The sample characteristics at T1 and T2 were as follows.
 T1: age = `r round(age_t1_m, 0)` years, gender = `r round(male_t1_m, 2)*100`% male, college degree = `r round(college_t1_m, 2)*100`%.
 T2: age = `r round(age_final_m, 0)` years, gender = `r round(male_final_m, 2)*100`% male, college degree = `r round(college_final_m * 100, 0)`%.
 One participant did not report their gender.
@@ -362,7 +369,7 @@ _General gratifications_ were measured with five items based on @sunLocationInfo
 One example item was "Using the participation platform has paid off for me". 
 Based on @schererGratifikationMinuteZeitnahe2002, _specific gratifications_ were measured on five dimensions with three items each. 
 Example items were: "Using the participation platform made it possible for me to" ... "learn things I would not have noticed otherwise" (information), "react to a subject that is important to me" (relevance), "engage politically" (political participation), "try to improve society" (idealism), and "soothe my guilty consciences" (extrinsic benefits).
-The means for both dimensions were _m_ = `r facval_tab["General gratifications", "m"]` (general gratifications) and _m_ = `r facval_tab["Specific gratifications", "m"]` (specific gratifications), which were above the scales' midpoint.
+The means for both dimensions were _m_ = `r facval_tab["Gratifications general", "m"]` (general gratifications) and _m_ = `r facval_tab["Gratifications specific", "m"]` (specific gratifications), which were above the scales' midpoint.
 This shows that on average people considered the website to be beneficial.
 
 _Privacy deliberation_ was measured with five self-designed items. 
@@ -380,7 +387,7 @@ _General trust_ was operationalized based on @sollnerWhyDifferentTrust2016, addr
 One example item was "The operators of the participation platform seemed trustworthy."
 _Specific trust_ was operationalized for the same three targets with three sub-dimensions each (i.e., ability, benevolence/integrity, and reliability), measured with one item each. 
 Example items were "The operators of the participation platform have done a good job" (ability), "The other users had good intentions" (benevolence/integrity), "The website worked well" (reliability). 
-Participants placed a lot of trust in the website, the providers and the other users (trust general: _m_ = `r facval_tab["General trust", "m"]`; trust specific: _m_ = `r facval_tab["Specific trust", "m"]`).
+Participants placed a lot of trust in the website, the providers and the other users (trust general: _m_ = `r facval_tab["Trust general", "m"]`; trust specific: _m_ = `r facval_tab["Trust specific", "m"]`).
 
 _Communication_ was calculated by counting the number of words each participant wrote in a comment.
 Communication was zero-inflated and heavily skewed:
@@ -399,7 +406,7 @@ The preregistered hypotheses were tested with a one-sided significance level of 
 As became apparent when analyzing the data, the preregistered analyses had two major problems.
 First, communication was zero-inflated and gamma distributed. 
 Although it is possible to analyze non-normal data with structural equation modeling, it is recommended to use analyses that model the variables' distribution, which can be achieved with Bayesian hurdle models [@mcelreathStatisticalRethinkingBayesian2016].
-I conclusion, in the exploratory analyses I ran Bayesian hurdle regression models, modeling the outcome as a zero-inflated gamma distribution using default (flat) priors [chains = 4, iterations = 2,000, warm-up = 1,000, @R-brms_a].
+In conclusion, in the exploratory analyses I ran (unstandardized) Bayesian hurdle regression models, modeling the outcome as a zero-inflated gamma distribution using default (flat) priors [chains = 4, iterations = 2,000, warm-up = 1,000, @R-brms_a].
 Second, in the preregistered analyses several variables were combined that are theoretically and empirically closely related, leading to multicollinearity [@vanhoveCollinearityIsnDisease2021].
 As a remedy, I adopted a causal modeling perspective, controlling only for confounders---in this case, age, gender, and education---but not for mediators [@rohrerThinkingClearlyCorrelations2018]. 
 To assess the effects, I tested whether or not the 95% highest density intervals of the average marginal effects excluded zero.
@@ -434,9 +441,9 @@ The mean of privacy deliberation was _m_ = `r des_pridel$m %>% round(2)`.
 Altogether, `r pridel_active %>% round(0)`% of participants reported having actively deliberated about their privacy. 
 
 The bivariate results showed three large correlations: 
-specific trust and general gratifications (_r_ = `r d_fs %>% select("Specific\ntrust", "General\ngratifications") %>% cor %>% .[2, 1] %>% my_round("std")`), 
+specific trust and general gratifications (_r_ = `r d_fs %>% select("Trust\nspecific", "Gratifications\ngeneral") %>% cor %>% .[2, 1] %>% my_round("std")`), 
 privacy concerns and privacy deliberation (_r_ = `r d_fs %>% select("Privacy\nconcerns", "Privacy\ndeliberation") %>% cor %>% .[2, 1] %>% my_round("std")`),
-and specific gratifications and self-efficacy (_r_ = `r d_fs %>% select("Specific\ngratifications", "Self-\nefficacy") %>% cor %>% .[2, 1] %>% my_round("std")`). 
+and specific gratifications and self-efficacy (_r_ = `r d_fs %>% select("Gratifications\nspecific", "Self-\nefficacy") %>% cor %>% .[2, 1] %>% my_round("std")`). 
 As all six variables were later analyzed within a single multiple regression, problems of multicollinearity might occur. 
 
 ## Preregistered Analyses
@@ -459,7 +466,7 @@ The results showed that the popularity cues had no effects on communication and 
 For an illustration, see Figure \@ref(fig:popularitycues). 
 For the detailed results of the specific inference tests using contrasts, see [companion website](https://XMtRa.github.io/like_dislike).
 
-```{r popularitycues, fig.cap="Overview of the model-predicted values for each variable, separated for the three websites. Control: Website without buttons. Like: Website with like buttons. Like \\& Dislike: Website with like and dislike buttons. Values from preregistered SEM.", out.width = "\\textwidth", fig.pos = "!h"}
+```{r popularitycues, fig.cap="Distributions and means with 95% CIs of the model-predicted values for each variable, separated for the three websites. Control: Website without buttons. Like: Website with like buttons. Like \\& Dislike: Website with like and dislike buttons. Values from preregistered SEM.", out.width = "\\textwidth", fig.pos = "!h"}
 knitr::include_graphics("figures/results/violin_plot.png")
 ```
 
@@ -468,6 +475,7 @@ knitr::include_graphics("figures/results/violin_plot.png")
 As explained above, the preregistered results were problematic.
 Communication was not normally distributed and the predictors were collinear.
 I hence updated the analyses, using Bayesian hurdle models controlling only for confounders but not mediators.
+In predicting communication, I opted for general trust over specific trust, as it exhibited lower levels of empirical and theoretical overlap with gratifications.
 The updated exploratory analyses showed different results.
 
 ```{r slopes, fig.cap="Exploratory analyses. Plotted are the average marginal effects of the Bayesian hurdle models. The difference between the control and the like \\& disklike group is significant.", fig.height=8, fig.width=8, out.width=".9\\textwidth", fig.align='center', fig.pos = "!h", warning=F}
@@ -499,13 +507,13 @@ apa_table(tab_slopes %>%
             "Experimental conditions" = c(6:8)
           ) 
           , col_spanners = list(
-            "HDI" = c(3, 4)
+            "95\\% HDI" = c(3, 4)
           )
           , font_size = "footnotesize"
-          , caption = "Effects of the privacy calculus variables and the popularity cues on communication. Credibility intervals exluding zero are considered significant."
+          , caption = "Unstandardized effects of the privacy calculus variables and the popularity cues on communication. Credibility intervals excluding zero are considered significant."
           , note = "HDI = highest density interval, LL = lower level; UL = upper level. Reported are average marginal effects."
           # , align = c("m{10cm}", rep("r", 3)) # use this for compiling pdfs
-          , align = c("l", rep("r", 3)) # use this for compiling htmls
+          # , align = c("l", rep("r", 3)) # use this for compiling htmls
           , digits = 0
           )
 ```
@@ -531,7 +539,7 @@ The privacy calculus model was extended:
 The privacy deliberation processes was tested explicitly, and trust and self-efficacy were included as predictors.
 
 The preregistered analyses showed that the popularity cues did not affect communication. 
-Only trust emerged as a significant predictor of online communication.
+Only self-efficacy emerged as a significant predictor of online communication.
 All other variables remained insignificant.
 However, the preregistered analyses have to be treated with caution.
 The predictors were collinear, which makes their integration in one single model problematic [@vanhoveCollinearityIsnDisease2021].
@@ -608,6 +616,7 @@ Whereas the effects of the popularity cues on all variables can be interpreted f
 Although the effects were controlled for age, gender, and education, other variables not included here could potentially bias the causal estimates [@coenenIndirectEffectOmitted2022].
 In addition, in order not to reveal the study intention the self-reported measures were collected after the field phase. 
 Demand effects might have led participants to align their answers to their prior behavior.
+To illustrate, users who communicated more actively might have experienced more self-efficacy afterward.
 As a result, the coefficients might overestimate the actual effects. 
 
 In experiments only the treatment variable should be manipulated, while all others should be held constant [assumption of stable unit treatment, @klinePrinciplesPracticeStructural2016]. 
@@ -617,7 +626,7 @@ Future research should repeat the design, preferably using several runs of the s
 ## Conclusion
 
 This study provides further support for the privacy calculus model and against the privacy paradox approach.
-Expected benefits, privacy concerns, comparing benefits and risks, trust, and self-efficacy all affected communication.
+Expected benefits, privacy concerns, deliberating about benefits and risks, trust, and self-efficacy all affected communication.
 Like and dislike buttons reduced communication significantly.
 Users can be considered proactive and reasonable.
 But, similar to everyday offline contexts, they are also affected by the affordances of their environment, and often act implicitly without pondering the consequences of their actions.

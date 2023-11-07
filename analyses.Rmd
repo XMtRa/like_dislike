@@ -233,7 +233,9 @@ run_hurdles <-
           data = object, 
           family = hurdle_gamma(),
           silent = TRUE,
-          refresh = 0
+          refresh = 0,
+          iter = 1000,
+          backend = "cmdstanr"
           )
       )
     
@@ -437,23 +439,23 @@ d <-
 # variable labels
 var_names <- c(
   "Privacy concerns", 
-  "General gratifications", 
-  "Specific gratifications",
+  "Gratifications general", 
+  "Gratifications specific",
   "Privacy deliberation", 
   "Self-efficacy", 
-  "General trust", 
-  "Specific trust",
+  "Trust general", 
+  "Trust specific",
   "Words log"
   )
 
 var_names_breaks <- c(
   "Privacy\nconcerns", 
-  "General\ngratifications", 
-  "Specific\ngratifications",
+  "Gratifications\ngeneral", 
+  "Gratifications\nspecific",
   "Privacy\ndeliberation", 
   "Self-\nefficacy", 
-  "General\ntrust", 
-  "Specific\ntrust",
+  "Trust\ngeneral", 
+  "Trust\nspecific",
   "Words (log)"
   )
 
@@ -1852,7 +1854,7 @@ As a result, I reran the analyses controlling for confounding variables that are
 
 I first compare likes and likes plus dislikes to the control condition.
 
-```{r}
+```{r words}
 run_hurdles(
   object = d,
   name = "wrds_ctrl",
@@ -1896,7 +1898,7 @@ Compared to the control condition, participants wrote `r effect_lkdlk_prcnt` per
 
 I then compare likes and likes plus dislikes to the control condition.
 
-```{r}
+```{r words-lkdslk}
 run_hurdles(
   object = d, 
   name = "wrds_lkdslk",
@@ -1911,7 +1913,7 @@ run_hurdles(
 
 I first compare likes and likes plus dislikes to the control condition.
 
-```{r}
+```{r pricon-ctrl}
 run_hurdles(
   object = d,
   name = "pricon_ctrl",
@@ -1935,7 +1937,7 @@ run_hurdles(
   )
 ```
 
-#### Expected Gratifications
+#### Gratifications General
 
 I first compare likes and likes plus dislikes to the control condition.
 
@@ -1945,7 +1947,7 @@ run_hurdles(
   name = "grats_ctrl",
   outcome = "grats_gen_fs", 
   predictor = "version",
-  y_lab = "Gratifications",
+  y_lab = "Gratifications general",
   x_lab = "Experimental conditions"
   )
 ```
@@ -1991,7 +1993,7 @@ run_hurdles(
   )
 ```
 
-#### Trust
+#### Trust general
 
 I first compare likes and likes plus dislikes to the control condition.
 
@@ -2001,7 +2003,7 @@ run_hurdles(
   name = "trust_ctrl",
   outcome = "trust_gen_fs", 
   predictor = "version",
-  y_lab = "Trust",
+  y_lab = "Trust general",
   x_lab = "Experimental conditions"
   )
 ```
@@ -2014,7 +2016,7 @@ run_hurdles(
   name = "trust_lkdslk",
   outcome = "trust_gen_fs", 
   predictor = "version_lkdslk",
-  y_lab = "Trust",
+  y_lab = "Trust general",
   x_lab = "Experimental conditions"
   )
 ```
@@ -2089,7 +2091,7 @@ wrds_pricon_7 <-
 
 People who were not concerned at all communicated on average `r wrds_pricon_1 %>% round(0) %>% abs()` words, whereas people strongly concerned communicated on average `r wrds_pricon_7 %>% round(0)` words.
 
-#### Expected Gratifications
+#### Gratifications General
 
 ```{r}
 run_hurdles(
@@ -2098,7 +2100,7 @@ run_hurdles(
   outcome = "words", 
   predictor = "grats_gen_fs",
   y_lab = "Words",
-  x_lab = "Expected gratifications"
+  x_lab = "Gratifications general"
   )
 ```
 
@@ -2115,7 +2117,7 @@ run_hurdles(
   )
 ```
 
-#### Trust
+#### Trust General
 
 ```{r}
 run_hurdles(
@@ -2124,7 +2126,7 @@ run_hurdles(
   outcome = "words", 
   predictor = "trust_gen_fs",
   y_lab = "Words",
-  x_lab = "Trust"
+  x_lab = "Trust general"
   )
 ```
 
@@ -2137,7 +2139,7 @@ run_hurdles(
   outcome = "words", 
   predictor = "self_eff_fs",
   y_lab = "Words",
-  x_lab = "Self-Efficacy"
+  x_lab = "Self-efficacy"
   )
 ```
 
@@ -2219,6 +2221,7 @@ fig_results <-
     ) %T>% 
   print()
 
+# Save visualizations
 ggsave("figures/results/effects.pdf")
 ggsave("figures/results/effects.png")
 ```
