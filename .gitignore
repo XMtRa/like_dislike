@@ -11,7 +11,13 @@ manuscript/archive
 manuscript_cache/
 manuscript.tex
 manuscript.log
+manuscript_identifiable.tex
+manuscript_identifiable.log
+manuscript_identifiable.pdf
+manuscript_identifiable.RmD
+manuscript_identifiable.html
 manuscript_with-deletions.RmD
 data/workspace_full.RData
 title_page.rmd
+title_page.tex
 title_page.pdf

@@ -39,7 +39,7 @@ Let's first load the packages we require for our analyses. Note that some need t
 
 ```{r results='hide', cache=F}
 # install github packages
-# devtools::install_github("tdienlin/td@v.0.0.2.3")  # uncomment to install
+# devtools::install_github("tdienlin/td@v0.0.2.6")  # uncomment to install
 # devtools::install_github("yrosseel/lavaan") 
 
 # define packages
@@ -66,10 +66,11 @@ packages <-
 
 # load packages
 lapply(
-  packages, 
-  library, 
-  character.only = TRUE, 
-  quietly = TRUE
+  packages
+  # , install.packages
+  , library
+  , character.only = TRUE
+  , quietly = TRUE
   )
 
 # If not wanting to compute all transformations etc., simply load workspace
@@ -692,19 +693,10 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>%
   print()
-
-# export factor validity
-assign(
-  paste0(
-    name, 
-    "_facval"
-    ), 
-  facval
-  )
 ```
 
 Factor loadings:
@@ -739,8 +731,8 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>% 
   print()
 
@@ -811,8 +803,8 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>%
   print()
 
@@ -912,8 +904,8 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>%
   print()
 
@@ -983,8 +975,8 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>%
   print()
 
@@ -1051,8 +1043,8 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>%
   print()
 
@@ -1136,8 +1128,8 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>% 
   print()
 
@@ -1205,8 +1197,8 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>%
   print()
 
@@ -1254,8 +1246,8 @@ Model fit:
 facval <- 
   fit_tab(
     fit, 
-    reliability = TRUE, 
-    scaled = TRUE
+    # reliability = TRUE, 
+    # scaled = TRUE
     ) %T>% 
   print()
 
@@ -1403,7 +1395,7 @@ d_fs <-
   mutate(
     version = d$version, 
     grats_gen_fs = rowMeans(select(., starts_with("GR02"))),
-    grats_spec_fs = rowMeans(select(., starts_with("GR01"))), 
+    # grats_spec_fs = rowMeans(select(., starts_with("GR01"))), 
     pri_con_fs = rowMeans(select(., starts_with("PC01"))),
     trust_gen_fs = rowMeans(select(., starts_with("TR02"))),
     trust_spec_fs = rowMeans(select(., starts_with("TR01"))),
@@ -1413,7 +1405,7 @@ d_fs <-
     version, 
     pri_con_fs, 
     grats_gen_fs, 
-    grats_spec_fs, 
+    # grats_spec_fs, 
     pri_del_fs, 
     self_eff_fs, 
     trust_gen_fs, 
@@ -1445,7 +1437,7 @@ des <-
   rbind(
     des_pricon,
     des_gratsgen,
-    des_gratsspec,
+    # des_gratsspec,
     des_pridel,
     des_trustgen,
     des_trustspec,
@@ -1456,7 +1448,7 @@ facval_tab <-
   rbind(
     pricon_facval,
     gratsgen_facval,
-    gratsspec_facval,
+    # gratsspec_facval,
     pridel_facval,
     selfeff_facval,
     trustgen_facval,
@@ -1467,13 +1459,13 @@ facval_tab <-
     .
     ) %>%
   set_rownames(
-    var_names[-c(8)]
+    var_names[-c(7)]
     )
 
 facval_tab %>% 
   kable() %>% 
-  kable_styling("striped") %>% 
-  scroll_box(width = "100%")
+  kableExtra::kable_styling("striped") %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 In what follows, I report zero-order correlations, distributions, and scatterplots of the variables' factor scores.
